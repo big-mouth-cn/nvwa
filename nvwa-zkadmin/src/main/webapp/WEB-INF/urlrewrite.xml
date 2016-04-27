@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.0//EN"
+    "http://tuckey.org/res/dtds/urlrewrite3.0.dtd">
+<urlrewrite>
+
+	<rule>
+		<from>/([0-9]+)/card.html</from>
+		<to>/card!beforeRecharge.action?cpUser=$1</to>
+	</rule>
+	<rule>
+		<from>/card/([0-9]+).html</from>
+		<to>/card!beforeRecharge.action?cardId=$1</to>
+	</rule>
+	<rule>
+		<from>/([0-9]+)/card/([0-9]+)/([0-9]+)/([0-9]+).html</from>
+		<to>/card!recharge.action?cpUser=$1&amp;cardId=$2&amp;cardPwd=$3&amp;phoneNumber=$4</to>
+	</rule>
+	<rule>
+		<from>/([0-9]+)/card/([0-9]+)/([0-9]+).html</from>
+		<to>/card!recharge.action?cpUser=$1&amp;cardId=$2&amp;cardPwd=$3</to>
+	</rule>
+	<rule>
+		<from>/card/recharge/([0-9]+).html</from>
+		<to>/card!recharge.action?phoneNumber=$1</to>
+	</rule>
+	<rule>
+		<from>^/case$</from>
+		<to>/case.action</to>
+	</rule>
+	<rule>
+		<from>/([0-9]+)/WX/recharge.html</from>
+		<to>/WX/recharge.action?cpUser=$1</to>
+	</rule>
+	
+	<rule>
+		<from>/([0-9]+)/WXrecharge/recharge.html</from>
+		<to>/WX/recharge!recharge.action?cpUser=$1</to>
+	</rule>
+	
+	<rule>
+		<from>/([0-9]+)/WXrecharge/prePay.html</from>
+		<to>/WX/recharge!prePay.action?cpUser=$1</to>
+	</rule>
+	
+	<rule>
+		<from>/WX/query.html</from>
+		<to>/WX/recharge!queryOrderByCpUser.action</to>
+	</rule>
+	
+	<rule>
+		<from>/WX/recharge.html</from>
+		<to>/WX/recharge.action</to>
+	</rule>
+	
+<!--	<rule>
+		<from>/([0-9]+)/WX/package.html</from>
+		<to>/WX/package.action?cpUser=$1</to>
+	</rule>  -->
+	
+	
+	<!-- 
+	<rule>
+		<from>/blog/([0-9]+).html</from>
+		<to>/blog!thread.shtml?id=$1</to>
+	</rule>
+	<rule>
+		<from>/album/([0-9]+).html</from>
+		<to>/p.shtml?albumId=$1</to>
+	</rule>
+	<rule>
+		<from>/photo/([0-9]+)/([0-9]+).html</from>
+		<to>/p!thread.shtml?albumId=$1&amp;id=$2</to>
+	</rule>
+	<rule>
+		<from>^/tag/(.*)$</from>
+		<to>/blog.shtml?tagName=$1</to>
+	</rule>
+	<rule>
+		<from>^/blog$</from>
+		<to>/blog.shtml</to>
+	</rule>
+	<rule>
+		<from>^/album$</from>
+		<to>/album.shtml</to>
+	</rule>
+	<rule>
+		<from>^/contact$</from>
+		<to>/contact.jsp</to>
+	</rule>
+	<rule>
+		<from>^/about$</from>
+		<to>/about.jsp</to>
+	</rule>
+	<rule>
+		<from>^/resume$</from>
+		<to>/resume.jsp</to>
+	</rule>
+	<rule>
+		<from>^/ticket4j$</from>
+		<to>/ticket4j.shtml</to>
+	</rule>
+	<rule>
+		<from>^/ticket4j/download.html</from>
+		<to>/ticket4j!download.shtml</to>
+	</rule>
+	<rule>
+		<from>^/m$</from>
+		<to>/base/auth.shtml</to>
+	</rule>
+	 -->
+</urlrewrite>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- jmxmp -->
+	<bean id="connectorServer"
+		class="org.springframework.jmx.support.ConnectorServerFactoryBean">
+		<property name="serviceUrl"
+			value="service:jmx:jmxmp://${jmxmp.host}:${jmxmp.port}" />
+		<property name="threaded" value="true" />
+		<property name="daemon" value="true" />
+	</bean>
+
+	<!-- statistics -->
+	<bean id="accessStatistics" class="org.bigmouth.nvwa.log4mongo.access.statistics.AccessStatistics" init-method="init" destroy-method="destroy">
+		<property name="failInvokeIgnoreUris" value="${access.statistics.failInvokeIgnoreUris}" />
+	</bean>
+
+	<!-- statistics updater -->
+	<bean id="minaStatisticsUpdater"
+		class="org.bigmouth.nvwa.log4mongo.transport.jmx.MinaStatisticsUpdater"
+		init-method="start" destroy-method="stop">
+	</bean>
+	
+	<!-- mbean export support for mbean lifecycle -->
+	<bean id="mBeanExportSupport" class="org.bigmouth.nvwa.log4mongo.jmx.MBeanExportSupport" />
+
+	<!-- this bean must not be lazily initialized if the exporting is to happen -->
+	<!-- mbean definition -->
+	<bean id="exporter" class="org.springframework.jmx.export.MBeanExporter"
+		lazy-init="false">
+		<property name="beans">
+			<map>
+				<entry key="${mbean.access.replier}" value-ref="accessReplier" />
+				<entry key="${mbean.access.task.statistics}" value-ref="accessStatistics" />
+				<entry key="${mbean.access.senderCluster}" value-ref="accessSender" />
+			</map>
+		</property>
+	</bean>
+</beans>
