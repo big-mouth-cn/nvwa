@@ -49,6 +49,11 @@
   	</dependency>
   	<dependency>
   		<groupId>org.bigmouth</groupId>
+  		<artifactId>nvwa-zookeeper</artifactId>
+  		<version>${project.parent.version}</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.bigmouth</groupId>
   		<artifactId>nvwa-mq</artifactId>
   		<version>${project.parent.version}</version>
   	</dependency>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
-	<bean id="zooKeeperCuratorWrapper" class="org.bigmouth.nvwa.log4mongo.cluster.node.ZooKeeperCuratorWrapper"
+	<bean id="zooKeeperCuratorWrapper" class="org.bigmouth.nvwa.cluster.node.ZooKeeperCuratorWrapper"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg value="${zk.servers}" />
 		<constructor-arg value="${zk.sessionTimeout}" />
 	</bean>
 
 	<!-- name code -->
-	<bean id="nameCodeUpdater" class="org.bigmouth.nvwa.log4mongo.cluster.NameCodeUpdater">
+	<bean id="nameCodeUpdater" class="org.bigmouth.nvwa.cluster.NameCodeUpdater">
 		<property name="nameCodeMapper" ref="ncMapper" />
 	</bean>
-	<bean id="nameCodeDetector" class="org.bigmouth.nvwa.log4mongo.cluster.NameCodeDetector"
+	<bean id="nameCodeDetector" class="org.bigmouth.nvwa.cluster.NameCodeDetector"
 		init-method="detect">
 		<property name="zk" ref="zooKeeperCuratorWrapper" />
 		<property name="watchPath" value="${zk.detectpath.namecode}" />
@@ -19,7 +19,7 @@
 	</bean>
 
 	<!-- Endpoint register -->
-	<bean id="endpointRegistrar" class="org.bigmouth.nvwa.log4mongo.distributed.EndpointRegistrar"
+	<bean id="endpointRegistrar" class="org.bigmouth.nvwa.distributed.EndpointRegistrar"
 		init-method="register">
 		<constructor-arg ref="notifier" />
 		<constructor-arg value="${zk.cluster.nodes}" />
@@ -28,7 +28,7 @@
 		<constructor-arg value="${cluster.weights}" />
 	</bean>
 	
-	<bean id="notifier" class="org.bigmouth.nvwa.log4mongo.distributed.notify.zk.CuratorNotifier"
+	<bean id="notifier" class="org.bigmouth.nvwa.distributed.notify.zk.CuratorNotifier"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg value="${zk.servers}" />
 		<constructor-arg value="${zk.sessionTimeout}" />

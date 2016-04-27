@@ -16,19 +16,19 @@
 
 	<!-- transport -->
 	<bean id="httpRequestExtFactory"
-		class="org.bigmouth.nvwa.log4mongo.access.request.ProxyHttpRequestExtFactory">
+		class="org.bigmouth.nvwa.access.request.ProxyHttpRequestExtFactory">
 	</bean>
-	<bean id="httpRequestExtFilter" class="org.bigmouth.nvwa.log4mongo.access.request.HttpRequestExtFilter">
+	<bean id="httpRequestExtFilter" class="org.bigmouth.nvwa.access.request.HttpRequestExtFilter">
 		<constructor-arg ref="httpRequestExtFactory" />
 	</bean>
 
-	<bean id="httpCodecFactory" class="org.bigmouth.nvwa.log4mongo.access.response.standard.stream.codec.HttpStreamCodecFactory">
+	<bean id="httpCodecFactory" class="org.bigmouth.nvwa.access.response.standard.stream.codec.HttpStreamCodecFactory">
 	</bean>
 	<bean id="httpProtocolCodecFilter" class="org.apache.mina.filter.codec.ProtocolCodecFilter">
 		<constructor-arg ref="httpCodecFactory" />
 	</bean>
 
-	<bean id="httpResponseStreamWriteFilter" class="org.bigmouth.nvwa.log4mongo.access.response.standard.stream.codec.HttpResponseStreamWriteFilter">
+	<bean id="httpResponseStreamWriteFilter" class="org.bigmouth.nvwa.access.response.standard.stream.codec.HttpResponseStreamWriteFilter">
 	</bean>
 
 	<bean id="accessReplier" class="com.skymobi.market.commons.transport.HttpMinaReplier">
@@ -125,25 +125,25 @@
 	</bean>
 
 	<!-- reactor -->
-	<bean id="httpReactor" class="org.bigmouth.nvwa.log4mongo.access.ChinaCacheHttpReactor">
+	<bean id="httpReactor" class="org.bigmouth.nvwa.access.ChinaCacheHttpReactor">
 		<constructor-arg>
 			<bean
-				class="org.bigmouth.nvwa.log4mongo.access.request.standard.StandardHttp2SapRequestTransformer">
+				class="org.bigmouth.nvwa.access.request.standard.StandardHttp2SapRequestTransformer">
 				<constructor-arg>
 					<bean
-						class="org.bigmouth.nvwa.log4mongo.access.request.standard.DefaultRequestParamSetExtractor"></bean>
+						class="org.bigmouth.nvwa.access.request.standard.DefaultRequestParamSetExtractor"></bean>
 				</constructor-arg>
 				<constructor-arg>
 					<map>
 						<entry key="apk">
 							<bean
-								class="org.bigmouth.nvwa.log4mongo.access.request.standard.biz.ApkDownloadSapRequestFactory" />
+								class="org.bigmouth.nvwa.access.request.standard.biz.ApkDownloadSapRequestFactory" />
 						</entry>
 						<entry key="apkIcon">
-							<bean class="org.bigmouth.nvwa.log4mongo.access.request.standard.biz.ApkIconSapRequestFactory" />
+							<bean class="org.bigmouth.nvwa.access.request.standard.biz.ApkIconSapRequestFactory" />
 						</entry>
 						<entry key="apkPreview">
-							<bean class="org.bigmouth.nvwa.log4mongo.access.request.standard.biz.ApkPreviewSapRequestFactory" />
+							<bean class="org.bigmouth.nvwa.access.request.standard.biz.ApkPreviewSapRequestFactory" />
 						</entry>
 					</map>
 				</constructor-arg>
@@ -156,12 +156,12 @@
 	</bean>
 
 	<!-- callback -->
-	<bean id="sapCallback" class="org.bigmouth.nvwa.log4mongo.access.SapCallback">
+	<bean id="sapCallback" class="org.bigmouth.nvwa.access.SapCallback">
 		<constructor-arg ref="sap2HttpResponseTransformer" />
 		<constructor-arg ref="accessReplier" />
 	</bean>
 	<bean id="sap2HttpResponseTransformer"
-		class="org.bigmouth.nvwa.log4mongo.access.response.standard.stream.Sap2HttpResponseStreamTransformer">
+		class="org.bigmouth.nvwa.access.response.standard.stream.Sap2HttpResponseStreamTransformer">
 		<constructor-arg ref="httpResponseExtFactory" />
 		<constructor-arg>
 			<map>
@@ -184,11 +184,11 @@
 		</property>
 	</bean>
 	<bean id="httpResponseExtFactory"
-		class="org.bigmouth.nvwa.log4mongo.access.response.ProxyHttpResponseExtFactory">
+		class="org.bigmouth.nvwa.access.response.ProxyHttpResponseExtFactory">
 		<constructor-arg ref="httpResponseFactory" />
 	</bean>
 	<bean id="httpResponseFactory"
-		class="org.bigmouth.nvwa.log4mongo.access.response.DefaultHttpResponseFactory">
+		class="org.bigmouth.nvwa.access.response.DefaultHttpResponseFactory">
 	</bean>
 
 	<!-- name code mapping -->

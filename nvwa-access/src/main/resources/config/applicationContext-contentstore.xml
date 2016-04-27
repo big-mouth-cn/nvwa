@@ -23,10 +23,10 @@
 		</property>
 		<property name="opTimeout" value="${memcached.frame.cfg.opTimeout}" />
 	</bean>
-	<bean id="frameContentStore" class="org.bigmouth.nvwa.log4mongo.contentstore.impl.LocalCachedContentStore">
+	<bean id="frameContentStore" class="org.bigmouth.nvwa.contentstore.impl.LocalCachedContentStore">
 		<property name="cache" ref="frameEhcache" />
 		<property name="contentStore">
-			<bean class="org.bigmouth.nvwa.log4mongo.contentstore.xmc.NioTokyotyrantContentStore">
+			<bean class="org.bigmouth.nvwa.contentstore.xmc.NioTokyotyrantContentStore">
 				<property name="memcachedClient" ref="frameTokyoTyrantClient" />
 			</bean>
 		</property>
@@ -38,7 +38,7 @@
 		<property name="overflowToDisk" value="false" />
 		<property name="memoryStoreEvictionPolicy" value="LRU" />
 	</bean>
-	<bean id="frameContentStoreLocator" class="org.bigmouth.nvwa.log4mongo.access.service.sharding.DefaultContentStoreLocator" >
+	<bean id="frameContentStoreLocator" class="org.bigmouth.nvwa.access.service.sharding.DefaultContentStoreLocator" >
 		<constructor-arg ref="frameContentStore" />
 	</bean>
 </beans>

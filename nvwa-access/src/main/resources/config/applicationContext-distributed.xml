@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
-	<bean id="zooKeeperCuratorWrapper" class="org.bigmouth.nvwa.log4mongo.cluster.node.ZooKeeperCuratorWrapper"
+	<bean id="zooKeeperCuratorWrapper" class="org.bigmouth.nvwa.cluster.node.ZooKeeperCuratorWrapper"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg value="${zk.servers}" />
 		<constructor-arg value="${zk.sessionTimeout}" />
 	</bean>
 	
-	<bean id="ncMapper" class="org.bigmouth.nvwa.log4mongo.sap.namecode.DefaultNameCodeMapper" />
+	<bean id="ncMapper" class="org.bigmouth.nvwa.sap.namecode.DefaultNameCodeMapper" />
 
 	<!-- name code -->
-	<bean id="nameCodeUpdater" class="org.bigmouth.nvwa.log4mongo.cluster.NameCodeUpdater">
+	<bean id="nameCodeUpdater" class="org.bigmouth.nvwa.cluster.NameCodeUpdater">
 		<property name="nameCodeMapper" ref="ncMapper" />
 	</bean>
-	<bean id="nameCodeDetector" class="org.bigmouth.nvwa.log4mongo.cluster.NameCodeDetector"
+	<bean id="nameCodeDetector" class="org.bigmouth.nvwa.cluster.NameCodeDetector"
 		init-method="detect">
 		<property name="zk" ref="zooKeeperCuratorWrapper" />
 		<property name="watchPath" value="${zk.detectpath.namecode}" />
@@ -21,7 +21,7 @@
 	</bean>
 	
 	<!-- base change monitor -->
-	<bean id="changeMonitor" class="org.bigmouth.nvwa.log4mongo.distributed.monitor.zk.CuratorChangeMonitor"
+	<bean id="changeMonitor" class="org.bigmouth.nvwa.distributed.monitor.zk.CuratorChangeMonitor"
 		init-method="init" destroy-method="destroy">
 		<constructor-arg value="${zk.servers}" />
 		<constructor-arg value="${zk.sessionTimeout}" />

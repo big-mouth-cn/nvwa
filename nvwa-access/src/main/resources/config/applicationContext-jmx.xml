@@ -11,18 +11,18 @@
 	</bean>
 
 	<!-- statistics -->
-	<bean id="accessStatistics" class="org.bigmouth.nvwa.log4mongo.access.statistics.AccessStatistics" init-method="init" destroy-method="destroy">
+	<bean id="accessStatistics" class="org.bigmouth.nvwa.access.statistics.AccessStatistics" init-method="init" destroy-method="destroy">
 		<property name="failInvokeIgnoreUris" value="${access.statistics.failInvokeIgnoreUris}" />
 	</bean>
 
 	<!-- statistics updater -->
 	<bean id="minaStatisticsUpdater"
-		class="org.bigmouth.nvwa.log4mongo.transport.jmx.MinaStatisticsUpdater"
+		class="org.bigmouth.nvwa.transport.jmx.MinaStatisticsUpdater"
 		init-method="start" destroy-method="stop">
 	</bean>
 	
 	<!-- mbean export support for mbean lifecycle -->
-	<bean id="mBeanExportSupport" class="org.bigmouth.nvwa.log4mongo.jmx.MBeanExportSupport" />
+	<bean id="mBeanExportSupport" class="org.bigmouth.nvwa.jmx.MBeanExportSupport" />
 
 	<!-- this bean must not be lazily initialized if the exporting is to happen -->
 	<!-- mbean definition -->

@@ -33,10 +33,10 @@
 		</property>
 		 -->
 	</bean>
-	<bean id="sessionNodeBuilder" class="org.bigmouth.nvwa.log4mongo.cache.support.ConfigNodeBuilder">
+	<bean id="sessionNodeBuilder" class="org.bigmouth.nvwa.cache.support.ConfigNodeBuilder">
 		<constructor-arg value="${session.memcached.servers}" />
 	</bean>
-	<bean id="sessionMemClientBuilder" class="org.bigmouth.nvwa.log4mongo.cache.xmc.XmcMemClientBuilder">
+	<bean id="sessionMemClientBuilder" class="org.bigmouth.nvwa.cache.xmc.XmcMemClientBuilder">
 		<property name="nodeBuilder" ref="sessionNodeBuilder" />
 		<property name="memcachedClient" ref="sessionMemcachedClient" />
 	</bean>
@@ -44,7 +44,7 @@
 		factory-bean="sessionMemClientBuilder" factory-method="build">
 		<property name="opTimeout" value="${session.memcached.cfg.soTimeout}" />
 	</bean>
-	<bean id="sessionHolder" class="org.bigmouth.nvwa.log4mongo.session.xmc.SimpleXmcSessionHolder" >
+	<bean id="sessionHolder" class="org.bigmouth.nvwa.session.xmc.SimpleXmcSessionHolder" >
 		<constructor-arg ref="sessionMemClient" />
 		<constructor-arg value="${session.expire}" />
 	</bean>
