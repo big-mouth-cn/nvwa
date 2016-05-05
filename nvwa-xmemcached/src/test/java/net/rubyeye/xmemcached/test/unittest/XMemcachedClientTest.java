@@ -63,7 +63,7 @@ public abstract class XMemcachedClientTest extends TestCase {
 	}
 
 	public void testCreateClientWithEmptyServers() throws Exception {
-		MemcachedClient client = new XMemcachedClient();
+		MemcachedClient client = new XMemcachedClient(true);
 		assertFalse(client.isShutdown());
 		client.shutdown();
 		assertTrue(client.isShutdown());

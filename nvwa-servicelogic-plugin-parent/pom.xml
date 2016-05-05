@@ -4,7 +4,6 @@
   <artifactId>nvwa-servicelogic-plugin-parent</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
-  <name>nvwa servicelogic plugin parent</name>
   
   <build>
 		<plugins>

@@ -78,7 +78,7 @@ public class ConnectionPoolMemcachedClientTest extends XMemcachedClientTest {
 		MockServer server = new MockServer();
 		server.start();
 		InetSocketAddress serverAddress = server.getServerAddress();
-		XMemcachedClient client = new XMemcachedClient();
+		XMemcachedClient client = new XMemcachedClient(true);
 		client.setConnectionPoolSize(5);
 		client.setEnableHeartBeat(false);
 		client.addServer(serverAddress);

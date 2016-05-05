@@ -32,11 +32,11 @@ public final class SpringBootstrap {
     private SpringBootstrap() {
     }
     
-    public static void bootUsingSpring(String[] contextFilePathes, String[] systemParameters) {
-        bootUsingSpring(JVMUtils.getFirstInvokeClassSimpleName(), contextFilePathes, systemParameters);
+    public static ClassPathXmlApplicationContext bootUsingSpring(String[] contextFilePathes, String[] systemParameters) {
+        return bootUsingSpring(JVMUtils.getFirstInvokeClassSimpleName(), contextFilePathes, systemParameters);
     }
     
-    public static void bootUsingSpring(String systemFlag, String[] contextFilePathes,
+    public static ClassPathXmlApplicationContext bootUsingSpring(String systemFlag, String[] contextFilePathes,
             String[] systemParameters) {
         Preconditions.checkArgument(StringUtils.isNotBlank(systemFlag), "systemFlag is blank.");
         Preconditions.checkArgument((!ArrayUtils.isEmpty(contextFilePathes))
@@ -45,13 +45,16 @@ public final class SpringBootstrap {
         long beginMTime = System.currentTimeMillis();
         JVMUtils.setProperties(systemParameters);
         try {
-            new ClassPathXmlApplicationContext(contextFilePathes).registerShutdownHook();
+            ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext(contextFilePathes);
+//            ctx.registerShutdownHook();
             LOGGER.info(systemFlag + " boot in " + (System.currentTimeMillis() - beginMTime)
                     + " ms");
+            return ctx;
 
         } catch (Exception e) {
             LOGGER.error(systemFlag + " boot occur error:", e);
             System.exit(-1);
+            return null;
         }
     }
 }

@@ -1189,4 +1189,8 @@ public interface MemcachedClient {
 	 */
 	public void setName(String name);
 
+	/**
+	 * shutdown
+	 */
+	void destroy();
 }

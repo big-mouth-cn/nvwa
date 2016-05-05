@@ -32,6 +32,7 @@
 			</bean>
 		</property>
 		 -->
+		<property name="addShutdownHook" value="false" />
 	</bean>
 	<bean id="sessionNodeBuilder" class="org.bigmouth.nvwa.cache.support.ConfigNodeBuilder">
 		<constructor-arg value="${session.memcached.servers}" />
@@ -41,7 +42,7 @@
 		<property name="memcachedClient" ref="sessionMemcachedClient" />
 	</bean>
 	<bean id="sessionMemClient" class="net.rubyeye.xmemcached.MemcachedClient"
-		factory-bean="sessionMemClientBuilder" factory-method="build">
+		factory-bean="sessionMemClientBuilder" factory-method="build" destroy-method="destroy">
 		<property name="opTimeout" value="${session.memcached.cfg.soTimeout}" />
 	</bean>
 	<bean id="sessionHolder" class="org.bigmouth.nvwa.session.xmc.SimpleXmcSessionHolder" >

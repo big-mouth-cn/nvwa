@@ -68,6 +68,8 @@ public interface Controller {
 	public abstract int getPort();
 
 	public abstract void start() throws IOException;
+	
+	public abstract void start(boolean addhook) throws IOException;
 
 	public abstract boolean isStarted();
 

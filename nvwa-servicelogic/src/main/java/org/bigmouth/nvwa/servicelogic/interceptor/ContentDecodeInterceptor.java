@@ -30,8 +30,7 @@ public abstract class ContentDecodeInterceptor extends AbstractInterceptor {
 		if (null == requestTemplate)
 			throw new NullPointerException("requestTemplate");
 
-		ContentDecoder contentDecoder = codecSelector.selectDecoder(requestTemplate);
-		// ContentDecoder contentDecoder = getContentDecoder(sapRequest);
+		ContentDecoder contentDecoder = codecSelector.selectDecoder(sapRequest.getContentType());
 		Object requestModel = contentDecoder.decode(content, requestTemplate);
 		mutableInvocation.setRequestModel(requestModel);
 
@@ -42,16 +41,6 @@ public abstract class ContentDecodeInterceptor extends AbstractInterceptor {
 
 		fireNextInterceptor(mutableInvocation);
 	}
-
-	// private ContentDecoder getContentDecoder(final SapRequest sapRequest) {
-	// return contentDecoderSelector.select(new ContentTypeGetter() {
-	//
-	// @Override
-	// public ContentType get() {
-	// return sapRequest.getContentType();
-	// }
-	// });
-	// }
 
 	public abstract Class<?> getRequestTemplate();
 

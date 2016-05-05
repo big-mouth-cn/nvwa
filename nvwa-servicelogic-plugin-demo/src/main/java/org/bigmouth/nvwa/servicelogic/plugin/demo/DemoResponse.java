@@ -15,11 +15,8 @@
  */
 package org.bigmouth.nvwa.servicelogic.plugin.demo;
 
-import org.bigmouth.nvwa.sap.ContentType;
-import org.bigmouth.nvwa.servicelogic.codec.annotation.CodecType;
 import org.bigmouth.nvwa.servicelogic.handler.BaseResponse;
 
-@CodecType(ContentType.JSON)
 public class DemoResponse extends BaseResponse {
 
     private String echo;

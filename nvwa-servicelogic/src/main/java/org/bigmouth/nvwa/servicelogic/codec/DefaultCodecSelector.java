@@ -53,6 +53,7 @@ public class DefaultCodecSelector implements CodecSelector {
 		return contentType2Decoders.get(contentType);
 	}
 
+	@Deprecated
 	@Override
 	public ContentType selectContentType(Class<?> template) {
 		SoftReference<ContentType> sr = class2ContentTypes.get(template);
@@ -71,4 +72,26 @@ public class DefaultCodecSelector implements CodecSelector {
 		}
 		return contentType;
 	}
+
+    @Override
+    public ContentEncoder selectEncoder(ContentType contentType) {
+        return selectEncoder(contentType, ContentType.JSON);
+    }
+
+    @Override
+    public ContentDecoder selectDecoder(ContentType contentType) {
+        return selectDecoder(contentType, ContentType.JSON);
+    }
+
+    @Override
+    public ContentEncoder selectEncoder(ContentType contentType, ContentType defaultContentType) {
+        ContentEncoder encoder = null == contentType ? contentType2Encoders.get(defaultContentType) : contentType2Encoders.get(contentType);
+        return encoder == null ? contentType2Encoders.get(defaultContentType) : encoder;
+    }
+
+    @Override
+    public ContentDecoder selectDecoder(ContentType contentType, ContentType defaultContentType) {
+        ContentDecoder decoder = null == contentType ? contentType2Decoders.get(defaultContentType) : contentType2Decoders.get(contentType);
+        return decoder == null ? contentType2Decoders.get(defaultContentType) : decoder;
+    }
 }

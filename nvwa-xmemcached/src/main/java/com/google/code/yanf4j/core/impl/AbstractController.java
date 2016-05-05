@@ -329,7 +329,12 @@ public abstract class AbstractController implements Controller,
 		throw new NullPointerException("Controller is not binded");
 	}
 
-	public synchronized void start() throws IOException {
+	@Override
+    public synchronized void start() throws IOException {
+	    start(true);
+    }
+
+    public synchronized void start(boolean addShutdownHook) throws IOException {
 		if (isStarted()) {
 			return;
 		}
@@ -355,16 +360,18 @@ public abstract class AbstractController implements Controller,
 		startStatistics();
 		start0();
 		notifyStarted();
-		Runtime.getRuntime().addShutdownHook(new Thread() {
-			@Override
-			public void run() {
-				try {
-					AbstractController.this.stop();
-				} catch (IOException e) {
-					log.error("Stop controller fail", e);
-				}
-			}
-		});
+		if (addShutdownHook) {
+		    Runtime.getRuntime().addShutdownHook(new Thread() {
+		        @Override
+		        public void run() {
+		            try {
+		                AbstractController.this.stop();
+		            } catch (IOException e) {
+		                log.error("Stop controller fail", e);
+		            }
+		        }
+		    });
+		}
 		log.warn("The Controller started at " + localSocketAddress + " ...");
 	}
 

@@ -91,6 +91,8 @@ public class XMemcachedClient implements XMemcachedClientMBean, MemcachedClient 
 	private MemcachedHandler memcachedHandler;
 	protected CommandFactory commandFactory;
 	private long opTimeout = DEFAULT_OP_TIMEOUT;
+	/** Is't add shutdown hook */
+	private boolean addShutdownHook = true;
 	private long connectTimeout = DEFAULT_CONNECT_TIMEOUT; // 连接超时
 	protected int connectionPoolSize = DEFAULT_CONNECTION_POOL_SIZE;
 
@@ -175,8 +177,16 @@ public class XMemcachedClient implements XMemcachedClientMBean, MemcachedClient 
 		}
 		this.opTimeout = opTimeout;
 	}
+	
+    public boolean isAddShutdownHook() {
+        return addShutdownHook;
+    }
+    
+    public void setAddShutdownHook(boolean addShutdownHook) {
+        this.addShutdownHook = addShutdownHook;
+    }
 
-	public void setHealSessionInterval(long healConnectionInterval) {
+    public void setHealSessionInterval(long healConnectionInterval) {
 		if (null != connector) {
 			connector.setHealSessionInterval(healConnectionInterval);
 		}
@@ -536,18 +546,20 @@ public class XMemcachedClient implements XMemcachedClientMBean, MemcachedClient 
 	private final void startConnector() throws IOException {
 		if (shutdown) {
 			shutdown = false;
-			connector.start();
+			connector.start(addShutdownHook);
 			memcachedHandler.start();
-			Runtime.getRuntime().addShutdownHook(new Thread() {
-				@Override
-				public void run() {
-					try {
-						XMemcachedClient.this.shutdown();
-					} catch (IOException e) {
-						log.error("Shutdown XMemcachedClient error", e);
-					}
-				}
-			});
+			if (addShutdownHook) {
+			    Runtime.getRuntime().addShutdownHook(new Thread() {
+			        @Override
+			        public void run() {
+			            try {
+			                XMemcachedClient.this.shutdown();
+			            } catch (IOException e) {
+			                log.error("Shutdown XMemcachedClient error", e);
+			            }
+			        }
+			    });
+			}
 		}
 	}
 
@@ -637,7 +649,7 @@ public class XMemcachedClient implements XMemcachedClientMBean, MemcachedClient 
 	 * @throws IOException
 	 */
 	public XMemcachedClient(final InetSocketAddress inetSocketAddress,
-			int weight) throws IOException {
+			int weight, boolean addShutdownHook) throws IOException {
 		super();
 		if (inetSocketAddress == null) {
 			throw new IllegalArgumentException("Null InetSocketAddress");
@@ -651,23 +663,25 @@ public class XMemcachedClient implements XMemcachedClientMBean, MemcachedClient 
 						.getDefaultConfiguration(), XMemcachedClientBuilder
 						.getDefaultSocketOptions(), new TextCommandFactory(),
 				new SerializingTranscoder());
+		setAddShutdownHook(addShutdownHook);
 		start0();
 		connect(new InetSocketAddressWrapper(inetSocketAddress,
 				serverOrderCount.incrementAndGet()), weight);
 	}
 
-	public XMemcachedClient(final InetSocketAddress inetSocketAddress)
+	public XMemcachedClient(final InetSocketAddress inetSocketAddress, boolean addShutdownHook)
 			throws IOException {
-		this(inetSocketAddress, 1);
+		this(inetSocketAddress, 1, addShutdownHook);
 	}
 
-	public XMemcachedClient() throws IOException {
+	public XMemcachedClient(boolean addShutdownHook) throws IOException {
 		super();
 		buildConnector(new ArrayMemcachedSessionLocator(),
 				new SimpleBufferAllocator(), XMemcachedClientBuilder
 						.getDefaultConfiguration(), XMemcachedClientBuilder
 						.getDefaultSocketOptions(), new TextCommandFactory(),
 				new SerializingTranscoder());
+		setAddShutdownHook(addShutdownHook);
 		start0();
 	}
 
@@ -690,10 +704,12 @@ public class XMemcachedClient implements XMemcachedClientMBean, MemcachedClient 
 			CommandFactory commandFactory, Transcoder transcoder,
 			List<InetSocketAddress> addressList,
 			List<MemcachedClientStateListener> stateListeners,
-			Map<InetSocketAddress, AuthInfo> map, int poolSize, String name)
+			Map<InetSocketAddress, AuthInfo> map, int poolSize, String name,
+			boolean addShutdownHook)
 			throws IOException {
 		super();
 		setName(name);
+		setAddShutdownHook(addShutdownHook);
 		optimiezeSetReadThreadCount(conf, addressList);
 		buildConnector(locator, allocator, conf, socketOptions, commandFactory,
 				transcoder);
@@ -735,9 +751,11 @@ public class XMemcachedClient implements XMemcachedClientMBean, MemcachedClient 
 			List<InetSocketAddress> addressList, int[] weights,
 			List<MemcachedClientStateListener> stateListeners,
 			Map<InetSocketAddress, AuthInfo> infoMap, int poolSize,
-			final String name) throws IOException {
+			final String name,
+			boolean addShutdownHook) throws IOException {
 		super();
 		setName(name);
+		setAddShutdownHook(addShutdownHook);
 		if (weights == null && addressList != null) {
 			throw new IllegalArgumentException("Null weights");
 		}
@@ -2349,4 +2367,13 @@ public class XMemcachedClient implements XMemcachedClientMBean, MemcachedClient 
 		return new KeyIteratorImpl(itemNumberList, this, address);
 	}
 
+    @Override
+    public void destroy() {
+        try {
+            XMemcachedClient.this.shutdown();
+        }
+        catch (IOException e) {
+            log.error("Shutdown XMemcachedClient error:", e);
+        }
+    }
 }

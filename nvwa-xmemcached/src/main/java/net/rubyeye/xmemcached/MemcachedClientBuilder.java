@@ -197,4 +197,8 @@ public interface MemcachedClientBuilder {
 	public long getOpTimeout();
 	
 	public void setOpTimeout(long opTimeout);
+	
+	boolean isAddShutdownHook();
+	
+	void setAddShutdownHook(boolean addShutdownHook);
 }

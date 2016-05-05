@@ -101,7 +101,8 @@ public class SendbackInterceptor extends AbstractInterceptor {
 
 		// content
 		Object responseModel = invocation.getResponseModel();
-		ContentEncoder contentEncoder = codecSelector.selectEncoder(responseModel.getClass());
+//		ContentEncoder contentEncoder = codecSelector.selectEncoder(responseModel.getClass());
+		ContentEncoder contentEncoder = codecSelector.selectEncoder(invocation.getRequest().getContentType());
 		byte[] bytes = contentEncoder.encode(responseModel);
 
 		// content type

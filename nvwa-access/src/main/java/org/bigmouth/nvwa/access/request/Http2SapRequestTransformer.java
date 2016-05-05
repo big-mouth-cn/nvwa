@@ -2,7 +2,9 @@ package org.bigmouth.nvwa.access.request;
 
 import java.io.UnsupportedEncodingException;
 
+import org.apache.asyncweb.common.HttpMethod;
 import org.apache.mina.core.buffer.IoBuffer;
+import org.bigmouth.nvwa.sap.ContentType;
 import org.bigmouth.nvwa.sap.DefaultSapRequest;
 import org.bigmouth.nvwa.sap.MutableSapRequest;
 import org.bigmouth.nvwa.sap.SapRequest;
@@ -38,6 +40,14 @@ public class Http2SapRequestTransformer implements Transformer<HttpRequestExt, S
 			String range = httpRequest.getHeader(HTTP_HEADER_RANGE);
 			if (null != range) {
 				// TODO: ULP range
+			}
+			
+			if (httpRequest.getMethod() == HttpMethod.GET) {
+			    sapRequest.setContentType(ContentType.KV);
+			}
+			else {
+			    String contentType = httpRequest.getContentType();
+			    sapRequest.setContentType(ContentTypeFactory.build(contentType));
 			}
 
 			// content

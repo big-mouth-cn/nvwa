@@ -47,6 +47,7 @@ public class XMemcachedClientBuilder implements MemcachedClientBuilder {
 	private String name;
 	
 	private long opTimeout = MemcachedClient.DEFAULT_OP_TIMEOUT;
+	private boolean addShutdownHook = true;
 
 	public void addStateListener(MemcachedClientStateListener stateListener) {
 		stateListeners.add(stateListener);
@@ -224,7 +225,7 @@ public class XMemcachedClientBuilder implements MemcachedClientBuilder {
 			memcachedClient = new XMemcachedClient(sessionLocator,
 					bufferAllocator, configuration, socketOptions,
 					commandFactory, transcoder, addressList, stateListeners,
-					authInfoMap, connectionPoolSize, name);
+					authInfoMap, connectionPoolSize, name, addShutdownHook);
 
 		} else {
 			if (addressList == null) {
@@ -237,7 +238,7 @@ public class XMemcachedClientBuilder implements MemcachedClientBuilder {
 			memcachedClient = new XMemcachedClient(sessionLocator,
 					bufferAllocator, configuration, socketOptions,
 					commandFactory, transcoder, addressList, weights,
-					stateListeners, authInfoMap, connectionPoolSize, name);
+					stateListeners, authInfoMap, connectionPoolSize, name, addShutdownHook);
 		}
 		if (commandFactory.getProtocol() == Protocol.Kestrel) {
 			memcachedClient.setOptimizeGet(false);
@@ -245,6 +246,8 @@ public class XMemcachedClientBuilder implements MemcachedClientBuilder {
 
 		//added by nada on 20120422
 		memcachedClient.setOpTimeout(opTimeout);
+		
+		memcachedClient.setAddShutdownHook(addShutdownHook);
 
 		return memcachedClient;
 	}
@@ -295,5 +298,13 @@ public class XMemcachedClientBuilder implements MemcachedClientBuilder {
 	@Override
 	public void setOpTimeout(long opTimeout) {
 		this.opTimeout = opTimeout;
-	}
+    }
+
+    public boolean isAddShutdownHook() {
+        return addShutdownHook;
+    }
+
+    public void setAddShutdownHook(boolean addShutdownHook) {
+        this.addShutdownHook = addShutdownHook;
+    }
 }

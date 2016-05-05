@@ -17,19 +17,36 @@ package org.bigmouth.nvwa.servicelogic.plugin.demo;
 
 import org.bigmouth.nvwa.dpl.factory.annotation.PlugIn;
 import org.bigmouth.nvwa.servicelogic.factory.annotation.TransactionService;
+import org.bigmouth.nvwa.servicelogic.handler.CommonBizCode;
 import org.bigmouth.nvwa.servicelogic.handler.ResourceNotFoundException;
 import org.bigmouth.nvwa.servicelogic.handler.TransactionException;
 import org.bigmouth.nvwa.servicelogic.handler.TransactionHandler;
+import org.bigmouth.nvwa.servicelogic.interceptor.SessionAware;
+import org.bigmouth.nvwa.session.Session;
+import org.bigmouth.nvwa.session.annotation.SessionSupport;
 
-
+@SessionSupport
 @PlugIn(name = "demo", code = "demo")
 @TransactionService(name = "demo", code = "demo")
-public class DemoService implements TransactionHandler<DemoRequest, DemoResponse> {
+public class DemoService implements TransactionHandler<DemoRequest, DemoResponse>, SessionAware {
 
+    private Session session;
+    
     @Override
     public void handle(DemoRequest requestModel, DemoResponse responseModel) throws ResourceNotFoundException,
             TransactionException {
-        String name = requestModel.getName();
-        responseModel.setEcho("Hello " + name);
+        try {
+            String name = requestModel.getName();
+            responseModel.setEcho(session.getId() + ", Hello " + name);
+        }
+        catch (Exception e) {
+            responseModel.setDesc(e.getMessage());
+            responseModel.setBizCode(CommonBizCode.FAIL);
+        }
+    }
+
+    @Override
+    public void setSession(Session session) {
+        this.session = session;
     }
 }

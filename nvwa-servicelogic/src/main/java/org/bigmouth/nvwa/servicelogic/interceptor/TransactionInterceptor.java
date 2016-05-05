@@ -95,7 +95,7 @@ public abstract class TransactionInterceptor<REQ, RESP> extends AbstractIntercep
 	}
 
 	protected Trackable getTrackObject(TransactionInvocation invocation) {
-		return new DefaultTrackWrapper(invocation.getRequestModel(), "_x_session_id");
+		return new DefaultTrackWrapper(invocation.getRequestModel(), "sessionId");
 	}
 
 	public abstract TransactionHandler<REQ, RESP> createTransactionHandler();

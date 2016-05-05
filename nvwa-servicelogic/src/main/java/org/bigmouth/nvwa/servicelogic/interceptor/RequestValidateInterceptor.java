@@ -1,5 +1,6 @@
 package org.bigmouth.nvwa.servicelogic.interceptor;
 
+import org.bigmouth.nvwa.sap.MutableSapResponse;
 import org.bigmouth.nvwa.sap.SapResponse;
 import org.bigmouth.nvwa.sap.SapResponseStatus;
 import org.bigmouth.nvwa.sap.SapResponseUtils;
@@ -55,6 +56,7 @@ public final class RequestValidateInterceptor extends AbstractInterceptor {
 	private void replyException(TransactionInvocation invocation, SapResponseStatus status) {
 		SapResponse sapResponse = SapResponseUtils.createEmptySapResponse(invocation.getRequest()
 				.getIdentification(), status);
+		((MutableSapResponse) sapResponse).setContentType(invocation.getRequest().getContentType());
 		invocation.getContext().getReplier().reply(sapResponse);
 	}
 }

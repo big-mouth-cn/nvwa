@@ -70,6 +70,8 @@ public class XMemcachedClientFactoryBean implements FactoryBean {
 	
 	//added by nada on 20120422
 	private long opTimeout = MemcachedClient.DEFAULT_OP_TIMEOUT;
+	//added by allen on 20160428
+	private boolean addShutdownHook = true;
 
 	public final CommandFactory getCommandFactory() {
 		return commandFactory;
@@ -187,6 +189,7 @@ public class XMemcachedClientFactoryBean implements FactoryBean {
 		builder.setAuthInfoMap(authInfoMap);
 		builder.setName(name);
 		builder.setOpTimeout(opTimeout);
+		builder.setAddShutdownHook(addShutdownHook);
 	}
 
 	private int[] getWeightsArray(List<InetSocketAddress> serverList) {
@@ -247,5 +250,13 @@ public class XMemcachedClientFactoryBean implements FactoryBean {
 
 	public void setOpTimeout(long opTimeout) {
 		this.opTimeout = opTimeout;
-	}
+    }
+
+    public boolean isAddShutdownHook() {
+        return addShutdownHook;
+    }
+
+    public void setAddShutdownHook(boolean addShutdownHook) {
+        this.addShutdownHook = addShutdownHook;
+    }
 }
