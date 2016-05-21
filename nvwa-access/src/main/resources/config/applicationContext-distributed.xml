@@ -16,7 +16,7 @@
 	<bean id="nameCodeDetector" class="org.bigmouth.nvwa.cluster.NameCodeDetector"
 		init-method="detect">
 		<property name="zk" ref="zooKeeperCuratorWrapper" />
-		<property name="watchPath" value="${zk.detectpath.namecode}" />
+		<property name="watchPath" value="/NVWA/servicelogic/cluster/namecodes" />
 		<property name="updater" ref="nameCodeUpdater" />
 	</bean>
 	

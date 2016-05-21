@@ -14,7 +14,7 @@
 	<bean id="nameCodeDetector" class="org.bigmouth.nvwa.cluster.NameCodeDetector"
 		init-method="detect">
 		<property name="zk" ref="zooKeeperCuratorWrapper" />
-		<property name="watchPath" value="${zk.detectpath.namecode}" />
+		<property name="watchPath" value="/NVWA/servicelogic/cluster/namecodes" />
 		<property name="updater" ref="nameCodeUpdater" />
 	</bean>
 
@@ -22,7 +22,7 @@
 	<bean id="endpointRegistrar" class="org.bigmouth.nvwa.distributed.EndpointRegistrar"
 		init-method="register">
 		<constructor-arg ref="notifier" />
-		<constructor-arg value="${zk.cluster.nodes}" />
+		<constructor-arg value="/NVWA/servicelogic/cluster/nodes" />
 		<constructor-arg value="${servicelogic.host}" />
 		<constructor-arg value="${servicelogic.port}" />
 		<constructor-arg value="${cluster.weights}" />

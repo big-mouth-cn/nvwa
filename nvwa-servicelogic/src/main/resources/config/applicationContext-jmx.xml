@@ -22,8 +22,8 @@
 		lazy-init="false">
 		<property name="beans">
 			<map>
-				<entry key="${mbean.replier}" value-ref="minaReplier" />
-				<entry key="${mbean.endpointRegistrar}" value-ref="endpointRegistrar" />
+				<entry key="servicelogic:type=transport,name=replier" value-ref="minaReplier" />
+				<entry key="servicelogic:type=distributed,name=endpointRegistrar" value-ref="endpointRegistrar" />
 			</map>
 		</property>
 	</bean>

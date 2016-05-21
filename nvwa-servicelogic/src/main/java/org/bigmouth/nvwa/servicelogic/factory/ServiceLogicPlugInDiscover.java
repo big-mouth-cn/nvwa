@@ -1,5 +1,6 @@
 package org.bigmouth.nvwa.servicelogic.factory;
 
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -12,7 +13,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.ibatis.builder.xml.XMLMapperBuilder;
+import org.apache.ibatis.session.Configuration;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.bigmouth.nvwa.dpl.event.ExecutionFailedEvent;
 import org.bigmouth.nvwa.dpl.event.listener.PlugInListener;
 import org.bigmouth.nvwa.dpl.event.listener.PlugInListenerAdapter;
@@ -84,6 +89,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.google.common.collect.Lists;
@@ -104,7 +110,11 @@ public class ServiceLogicPlugInDiscover extends AbstractPlugInDiscover implement
 	private boolean isSpringContextFile(String name) {
 		return name.endsWith(".xml");
 	}
-
+	
+	protected void extraDiscover(PlugInClassLoader classloader, AbstractApplicationContext plugInContext) {
+	    // If need more discover, please override this function
+	}
+	
 	@Override
 	public PlugIn discover(PlugInClassLoader classloader) {
 		if (null == classloader)
@@ -113,7 +123,6 @@ public class ServiceLogicPlugInDiscover extends AbstractPlugInDiscover implement
 		List<String> contextFiles = findPlugInContextFiles(classloader);
 		if (null == contextFiles || 0 == contextFiles.size())
 			throw new PlugInDiscoverException("Can not found any Spring application context file.");
-
 		AbstractApplicationContext plugInContext = createPlugInContext(contextFiles);
 		try {
 			String[] handlerBeanNames = findHandlerBeanNames(plugInContext);
@@ -121,13 +130,13 @@ public class ServiceLogicPlugInDiscover extends AbstractPlugInDiscover implement
 				throw new PlugInDiscoverException(
 						"Can not found TransactionHandler bean definition in PlugIn Spring applicationContext file.");
 
-			PlugInCfgMetadata plugInCfgMetadata = createPlugInCfgMetadata(handlerBeanNames,
-					plugInContext);
-
+			PlugInCfgMetadata plugInCfgMetadata = createPlugInCfgMetadata(handlerBeanNames, plugInContext);
+			extraDiscover(classloader, plugInContext);
 			return createPlugIn(plugInCfgMetadata);
-		} catch (RuntimeException e) {
-			plugInContext.destroy();
-			throw e;
+		}
+		catch (RuntimeException e) {
+		    plugInContext.destroy();
+		    throw e;
 		}
 	}
 
@@ -157,7 +166,7 @@ public class ServiceLogicPlugInDiscover extends AbstractPlugInDiscover implement
 				}, false);
 		return contextFiles;
 	}
-
+	
 	// TODO:
 	protected CodecSelector getCodecSelector(ApplicationContext applicationContext) {
 		// contentDecoderSelector

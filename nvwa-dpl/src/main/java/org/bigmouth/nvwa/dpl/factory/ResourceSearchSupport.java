@@ -13,14 +13,14 @@ import org.bigmouth.nvwa.utils.JarFileUtils;
 
 public class ResourceSearchSupport {
 
-	private static final String SKYMARKET_PLUAGIN_CLASS_PATH = "org.bigmouth.nvwa.servicelogic.plugin.*";
-	private static final String SKYMARKET_PLUAGIN_RESOURCE_PATH = "org/bigmouth/nvwa/servicelogic/plugin/*";
+	private static final String PLUAGIN_CLASS_PATH = "org.bigmouth.nvwa.servicelogic.plugin.*";
+	private static final String PLUAGIN_RESOURCE_PATH = "org/bigmouth/nvwa/servicelogic/plugin/*";
 	private static final String METADATA_CFG_FILE_PATH = "plugin-metadata";
 	private final String plugInBasePackage;
 	private final String plugInBasePath;
 
 	public ResourceSearchSupport() {
-		this(SKYMARKET_PLUAGIN_CLASS_PATH, SKYMARKET_PLUAGIN_RESOURCE_PATH);
+		this(PLUAGIN_CLASS_PATH, PLUAGIN_RESOURCE_PATH);
 	}
 
 	public ResourceSearchSupport(String plugInBasePackage, String plugInBasePath) {

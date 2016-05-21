@@ -36,12 +36,7 @@ public class PostgreSqlPaggingDialect extends DefaultPaggingDialect {
 
     @Override
     public String getCountSql(String querySql) {
-//        querySql = querySql.trim().toUpperCase();
-//        String endSql = querySql.substring(querySql.indexOf("FROM"));
-//        if (endSql.toUpperCase().indexOf("ORDER BY") != -1) {
-//            endSql = endSql.substring(0, endSql.toUpperCase().indexOf("ORDER BY"));            
-//        }
+        querySql = ORDERBY.matcher(querySql).replaceAll(EMPTY);
         return "SELECT COUNT(*) " + RowBounds.COUNT_COLUMN_ALIAS + " FROM (" + querySql + ") AS TEMP_TABLE";
     }
-
 }

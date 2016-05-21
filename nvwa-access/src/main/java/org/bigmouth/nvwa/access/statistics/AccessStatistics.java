@@ -35,6 +35,7 @@ public class AccessStatistics {
 	private final Set<String> failInvokeIgnoreUris = new ConcurrentHashSet<String>();
 
 	private ExecutorService executorService;
+	private boolean writeFailInvokeRequest = false;
 
 	public void init() {
 		executorService = Executors.newSingleThreadExecutor(new ThreadFactory() {
@@ -87,10 +88,19 @@ public class AccessStatistics {
 
 	public void increaseFailTask(HttpInvocation invocation) {
 		failTasks.incrementAndGet();
-		recordFailInvoke(invocation);
+		if (writeFailInvokeRequest)
+		    recordFailInvoke(invocation);
 	}
+	
+    public boolean isWriteFailInvokeRequest() {
+        return writeFailInvokeRequest;
+    }
+    
+    public void setWriteFailInvokeRequest(boolean writeFailInvokeRequest) {
+        this.writeFailInvokeRequest = writeFailInvokeRequest;
+    }
 
-	public long getFailTasks() {
+    public long getFailTasks() {
 		return failTasks.longValue();
 	}
 

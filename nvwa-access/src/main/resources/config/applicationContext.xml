@@ -59,8 +59,8 @@
 		<property name="idleTime" value="${access.idleTime}" />
 		<property name="reactor" ref="httpReactor" />
 		<property name="replier" ref="accessReplier" />
-		<property name="receiverMBeanName" value="${mbean.access.receiver}" />
-		<property name="receiverIoStatsMBeanName" value="${mbean.access.receiver.statistics}" />
+		<property name="receiverMBeanName" value="access:type=transport,name=receiver" />
+		<property name="receiverIoStatsMBeanName" value="access:type=transport,name=receiverIoStatistics" />
 		<property name="statisticsUpdater" ref="minaStatisticsUpdater" />
 		<property name="mbeanLifeCycleSupport" ref="mBeanExportSupport" />
 	</bean>
@@ -83,7 +83,7 @@
 	<!-- dynamic servicelogic nodes cluster -->
 	<bean id="accessSender" class="org.bigmouth.nvwa.transport.failover.SenderCluster"
 		init-method="init" destroy-method="destroy">
-		<constructor-arg value="${zk.cluster.nodes}" />
+		<constructor-arg value="/NVWA/servicelogic/cluster/nodes" />
 		<constructor-arg ref="changeMonitor" />
 		<property name="senderFactory" ref="senderFactory" />
 		<property name="senderLocator" value="${cluster.loadbalance}" />
@@ -100,9 +100,9 @@
 		<constructor-arg value="3" />
 		<constructor-arg value="10000" />
 
-		<property name="senderMBeanName" value="0.access:type=transport,name=sender_" />
-		<property name="senderIoStatsMBeanName" value="0.access:type=transport,name=senderIoStatistics_" />
-		<property name="senderQueueMBeanName" value="0.access:type=transport,name=senderQueue_" />
+		<property name="senderMBeanName" value="access:type=transport,name=sender_" />
+		<property name="senderIoStatsMBeanName" value="access:type=transport,name=senderIoStatistics_" />
+		<property name="senderQueueMBeanName" value="access:type=transport,name=senderQueue_" />
 		<property name="statisticsUpdater" ref="minaStatisticsUpdater" />
 		<property name="sendFailMessageCollector" ref="sendFailMessageCollector" />
 		<property name="callback" ref="sapCallback" />
@@ -110,7 +110,7 @@
 	<bean id="sendFailMessageCollector" class="org.bigmouth.nvwa.transport.DelegatedSender"
 		init-method="init" destroy-method="destroy">
 		<property name="nextSender" ref="accessSender" />
-		<property name="senderMBeanName" value="${mbean.access.sendFailMessageCollector}" />
+		<property name="senderMBeanName" value="access:type=transport,name=sendFailMessageCollector" />
 	</bean>
 
 	<!-- reactor -->

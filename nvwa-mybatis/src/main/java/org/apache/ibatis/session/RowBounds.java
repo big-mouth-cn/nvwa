@@ -24,7 +24,7 @@ public class RowBounds {
 
     public final static RowBounds DEFAULT = new RowBounds();
 
-    public final static String COUNT_COLUMN_ALIAS = "ROW_COUNT_ASDFG_ASDFG__";
+    public final static String COUNT_COLUMN_ALIAS = "ROW_COUNTS";
 
     // pageNo
     protected int offset;

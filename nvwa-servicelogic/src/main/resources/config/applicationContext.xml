@@ -12,6 +12,7 @@
 	</bean>
 	
 	<import resource="./applicationContext-distributed.xml"/>
+	<import resource="./applicationContext-mybatis.xml"/>
 	<import resource="./applicationContext-session.xml"/>
 	<import resource="./applicationContext-log.xml"/>
 	<import resource="./applicationContext-jmx.xml"/>
@@ -48,8 +49,8 @@
 		<constructor-arg value="${servicelogic.port}" />
 		<property name="reactor" ref="serviceLogicReactor" />
 		<property name="replier" ref="minaReplier" />
-		<property name="receiverMBeanName" value="${mbean.receiver}" />
-		<property name="receiverIoStatsMBeanName" value="${mbean.receiver.statistics}" />
+		<property name="receiverMBeanName" value="servicelogic:type=transport,name=receiver" />
+		<property name="receiverIoStatsMBeanName" value="servicelogic:type=transport,name=receiverIoStatistics" />
 		<property name="statisticsUpdater" ref="minaStatisticsUpdater" />
 		<property name="mbeanLifeCycleSupport" ref="mBeanExportSupport" />
 	</bean>
@@ -115,7 +116,7 @@
 		<constructor-arg value="../plugins/" />
 		<constructor-arg>
 			<list>
-				<bean class="org.bigmouth.nvwa.servicelogic.factory.ServiceLogicPlugInDiscover" />
+				<bean class="org.bigmouth.nvwa.servicelogic.factory.MyBatisSupportDiscover" />
 				<bean class="org.bigmouth.nvwa.dpl.factory.SpringStylePlugInDiscover" />
 				<bean class="org.bigmouth.nvwa.dpl.factory.DefaultPlugInDiscover" />
 				<bean class="org.bigmouth.nvwa.dpl.factory.AnnotationPlugInDiscover" />

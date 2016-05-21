@@ -30,9 +30,9 @@
 		lazy-init="false">
 		<property name="beans">
 			<map>
-				<entry key="${mbean.access.replier}" value-ref="accessReplier" />
-				<entry key="${mbean.access.task.statistics}" value-ref="accessStatistics" />
-				<entry key="${mbean.access.senderCluster}" value-ref="accessSender" />
+				<entry key="access:type=transport,name=replier" value-ref="accessReplier" />
+				<entry key="access:type=transport,name=taskStatistics" value-ref="accessStatistics" />
+				<entry key="access:type=transport,name=senderCluster" value-ref="accessSender" />
 			</map>
 		</property>
 	</bean>

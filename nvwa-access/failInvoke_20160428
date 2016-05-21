@@ -1,0 +1,18 @@
+----------------------------
+happenTime:2016-04-28 03:03:13 542
+peerIp:172.16.20.43
+consumingTime:125814
+responseStatusCode:400: CLIENT_ERROR - Bad Request
+uri:/demo/demo
+headers:{Accept=[*/*], Accept-Encoding=[gzip, deflate], Accept-Language=[zh-CN,zh;q=0.8], Cache-Control=[no-cache], Connection=[keep-alive], Content-Length=[0], Content-Type=[application/json;charset=UTF-8], Host=[172.16.20.43:8888], Origin=[chrome-extension://eipfaebbhkolhhlinfmklndkalmemifh], User-Agent=[Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36]}
+content:bytes size is:[0]
+
+----------------------------
+happenTime:2016-04-28 03:16:18 307
+peerIp:172.16.20.43
+consumingTime:59965
+responseStatusCode:500: SERVER_ERROR - Internal Server Error
+uri:/demo/demo?name=allen.hu
+headers:{Accept=[*/*], Accept-Encoding=[gzip, deflate, sdch], Accept-Language=[zh-CN,zh;q=0.8], Cache-Control=[no-cache], Connection=[keep-alive], Content-Type=[application/json], Host=[172.16.20.43:8888], User-Agent=[Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.87 Safari/537.36]}
+content:bytes size is:[0]
+
