@@ -23,6 +23,7 @@ import org.bigmouth.nvwa.servicelogic.handler.BaseResponse;
 public class PairResponse extends BaseResponse {
 
     private List<Pair> pairs;
+    private Pair pair;
 
     public List<Pair> getPairs() {
         return pairs;
@@ -30,5 +31,13 @@ public class PairResponse extends BaseResponse {
 
     public void setPairs(List<Pair> pairs) {
         this.pairs = pairs;
+    }
+
+    public Pair getPair() {
+        return pair;
+    }
+
+    public void setPair(Pair pair) {
+        this.pair = pair;
     }
 }

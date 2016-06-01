@@ -16,6 +16,9 @@
 	<import resource="./applicationContext-session.xml"/>
 	<import resource="./applicationContext-log.xml"/>
 	<import resource="./applicationContext-jmx.xml"/>
+	<import resource="./applicationContext-dubbo.xml"/>
+	
+	<bean class="org.bigmouth.nvwa.spring.SpringContextHolder" />
 
 	<!-- transport -->
 	<bean id="sapProtocolCodecFilter" class="org.apache.mina.filter.codec.ProtocolCodecFilter">

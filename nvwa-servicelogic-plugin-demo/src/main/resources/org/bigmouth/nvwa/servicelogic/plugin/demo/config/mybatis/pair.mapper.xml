@@ -9,6 +9,14 @@
 	</resultMap>
 	
 	<select id="queryAll" resultMap="Pair">
-		SELECT key, value, des, client_use FROM tbl_fm_base_conf_pair WHERE deleted = 0
+		SELECT key, value, des, client_use FROM tbl_fm_base_conf_pair WHERE deleted = 0 ORDER BY create_time DESC
+	</select>
+	
+	<select id="query" resultMap="Pair" parameterType="long">
+		SELECT key, value, des, client_use FROM tbl_fm_base_conf_pair WHERE deleted = 0 AND id=#{id}
+	</select>
+	
+	<select id="queryByKey" resultMap="Pair" parameterType="string">
+		SELECT key, value, des, client_use FROM tbl_fm_base_conf_pair WHERE deleted = 0 AND key=#{key}
 	</select>
 </mapper>

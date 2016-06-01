@@ -38,6 +38,10 @@ public class SpringContextProperty extends PropertyPlaceholderConfigurer {
             ctxPropertiesMap.put(keyStr, value);
         }
     }
+    
+    public static Map<String, String> getProperties() {
+        return ctxPropertiesMap;
+    }
 
     public static String getContextProperty(String name) {
         return ctxPropertiesMap.get(name);

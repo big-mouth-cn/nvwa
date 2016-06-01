@@ -14,6 +14,12 @@
 		</property>
 	</bean>
 	
+	<dubbo:reference interface="com.mopote.mdum.common.sequence.SequenceService" id="sequenceDubboService" />
+	
+	<bean class="org.bigmouth.nvwa.servicelogic.plugin.demo.sequence.SequenceService" id="sequenceService" scope="prototype">
+		<property name="sequenceService" ref="sequenceDubboService" />
+	</bean>
+	
 	<bean class="org.bigmouth.nvwa.servicelogic.plugin.demo.DemoService" id="demoService" scope="prototype"></bean>
 	
 	<bean class="org.bigmouth.nvwa.servicelogic.plugin.demo.pair.PairService" id="pairService" scope="prototype">

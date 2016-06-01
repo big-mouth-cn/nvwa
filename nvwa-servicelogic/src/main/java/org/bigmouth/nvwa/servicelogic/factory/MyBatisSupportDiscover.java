@@ -25,6 +25,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.bigmouth.nvwa.dpl.hotswap.PlugInClassLoader;
 import org.bigmouth.nvwa.dpl.hotswap.ResourceFilter;
 import org.bigmouth.nvwa.dpl.plugin.PlugIn;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
@@ -35,6 +37,8 @@ import org.springframework.core.io.ClassPathResource;
  */
 public class MyBatisSupportDiscover extends ServiceLogicPlugInDiscover {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyBatisSupportDiscover.class);
+    
     @Override
     public PlugIn discover(PlugInClassLoader classloader) {
         return super.discover(classloader);
@@ -58,9 +62,13 @@ public class MyBatisSupportDiscover extends ServiceLogicPlugInDiscover {
         Configuration configuration = sqlSessionFactory.getConfiguration();
         List<String> mappers = findPlugInMapperXmlFiles(classloader);
         if (CollectionUtils.isNotEmpty(mappers)) {
+            if (LOGGER.isInfoEnabled()) {
+                LOGGER.info("Loading XML mybatis-mapper definitions from class path resource {}", mappers);
+            }
             for (String mapper : mappers) {
                 ClassPathResource r = new ClassPathResource(mapper);
-                XMLMapperBuilder builder = new XMLMapperBuilder(r.getInputStream(), configuration, r.toString(),
+                String resource = r.toString();
+                XMLMapperBuilder builder = new XMLMapperBuilder(r.getInputStream(), configuration, resource,
                         configuration.getSqlFragments());
                 builder.parse();
             }

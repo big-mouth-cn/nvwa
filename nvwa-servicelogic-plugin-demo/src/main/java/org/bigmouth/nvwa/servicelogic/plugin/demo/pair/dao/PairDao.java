@@ -21,4 +21,5 @@ import org.bigmouth.nvwa.servicelogic.plugin.demo.pair.Pair;
 
 public interface PairDao extends IMyBatisDao<Pair, Long> {
 
+    Pair queryByKey(String key);
 }

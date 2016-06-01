@@ -17,6 +17,7 @@ package org.bigmouth.nvwa.servicelogic.plugin.demo.pair;
 
 import java.util.List;
 
+import org.bigmouth.nvwa.mybatis.page.PageInfo;
 import org.bigmouth.nvwa.mybatis.support.MyBatisServiceSupport;
 import org.bigmouth.nvwa.servicelogic.factory.annotation.TransactionService;
 import org.bigmouth.nvwa.servicelogic.handler.ResourceNotFoundException;
@@ -32,8 +33,12 @@ public class PairService extends MyBatisServiceSupport<Pair, Long, PairDao> impl
     @Override
     public void handle(PairRequest requestModel, PairResponse responseModel) throws ResourceNotFoundException,
             TransactionException {
-        List<Pair> pairs = pairDao.queryAll();
+        PageInfo<Pair> page = new PageInfo<Pair>(1, 5);
+        List<Pair> pairs = pairDao.queryAll(page);
         responseModel.setPairs(pairs);
+        
+        Pair pair = pairDao.queryByKey("UNUSABLE_REGION");
+        responseModel.setPair(pair);
     }
 
     @Override

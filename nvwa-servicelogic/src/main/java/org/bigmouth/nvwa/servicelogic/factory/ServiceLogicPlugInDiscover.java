@@ -1,6 +1,5 @@
 package org.bigmouth.nvwa.servicelogic.factory;
 
-import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -13,11 +12,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.ibatis.builder.xml.XMLMapperBuilder;
-import org.apache.ibatis.session.Configuration;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.bigmouth.nvwa.dpl.event.ExecutionFailedEvent;
 import org.bigmouth.nvwa.dpl.event.listener.PlugInListener;
 import org.bigmouth.nvwa.dpl.event.listener.PlugInListenerAdapter;
@@ -89,7 +84,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.google.common.collect.Lists;
@@ -100,15 +94,17 @@ public class ServiceLogicPlugInDiscover extends AbstractPlugInDiscover implement
 		ApplicationContextAware {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ServiceLogicPlugInDiscover.class);
+	private static final String SPRING_CONTEXT_FILE_SUFFIX = "pluginContext.xml";
 	private static final String THREAD_MODEL_TYPE_CACHED = "cached";
 	private static final String THREAD_MODEL_TYPE_FIXED = "fixed";
 	private static final String THREAD_MODEL_TYPE_SINGLE = "single";
 
 	private ApplicationContext applicationContext;
+	private String springContextFileSuffix = SPRING_CONTEXT_FILE_SUFFIX;
 
 	// TODO:simple version
 	private boolean isSpringContextFile(String name) {
-		return name.endsWith(".xml");
+		return name.endsWith(springContextFileSuffix);
 	}
 	
 	protected void extraDiscover(PlugInClassLoader classloader, AbstractApplicationContext plugInContext) {
@@ -746,8 +742,16 @@ public class ServiceLogicPlugInDiscover extends AbstractPlugInDiscover implement
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		this.applicationContext = applicationContext;
 	}
+	
+    public String getSpringContextFileSuffix() {
+        return springContextFileSuffix;
+    }
+    
+    public void setSpringContextFileSuffix(String springContextFileSuffix) {
+        this.springContextFileSuffix = springContextFileSuffix;
+    }
 
-	public ApplicationContext getApplicationContext() {
+    public ApplicationContext getApplicationContext() {
 		return applicationContext;
 	}
 

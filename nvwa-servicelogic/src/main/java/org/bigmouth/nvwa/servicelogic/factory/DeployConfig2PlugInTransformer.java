@@ -211,7 +211,6 @@ public class DeployConfig2PlugInTransformer implements
 		return service;
 	}
 
-	@SuppressWarnings("unchecked")
 	protected Interceptor createInterceptorChain(final ServiceDeployConfig config,
 			ContentEncoder contentEncoder, ContentDecoder contentDecoder,
 			final Class<?> requestClass, final Class<?> responseClass) {
@@ -239,10 +238,8 @@ public class DeployConfig2PlugInTransformer implements
 				try {
 					return responseClass.newInstance();
 				} catch (InstantiationException e) {
-					// TODO Auto-generated catch block
 					throw new RuntimeException("createResponseModel:");
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					throw new RuntimeException("createResponseModel:");
 				}
 			}
@@ -259,10 +256,9 @@ public class DeployConfig2PlugInTransformer implements
 		return ServiceStatusListener.class.isAssignableFrom(slClass);
 	}
 
-	@SuppressWarnings("unchecked")
-	protected List createServiceListeners(final ServiceDeployConfig config,
+	protected List<Object> createServiceListeners(final ServiceDeployConfig config,
 			Class<? extends ServiceListener>[] serviceListnerClasses) {
-		List serviceListeners = Lists.newArrayList();
+		List<Object> serviceListeners = Lists.newArrayList();
 		for (Class<? extends ServiceListener> slClass : serviceListnerClasses) {
 			Object sl = null;
 			// if status listener
@@ -324,19 +320,17 @@ public class DeployConfig2PlugInTransformer implements
 		return serviceConfig;
 	}
 
-	@SuppressWarnings("unchecked")
 	private MutablePlugIn createPlugIn(ApplicationContext applicationContext,
-			PlugInConfig plugInConfig, Status plugInStatus, List plugInListeners) {
+			PlugInConfig plugInConfig, Status plugInStatus, List<PlugInListener> plugInListeners) {
 		SpringSytlePlugIn plugIn = new SpringSytlePlugIn(plugInConfig, plugInStatus,
 				plugInListeners);
 		plugIn.setApplicationContext(applicationContext);
 		return plugIn;
 	}
 
-	@SuppressWarnings("unchecked")
-	protected List createPlugInListeners(final ServiceDeployConfig config,
+	protected List<Object> createPlugInListeners(final ServiceDeployConfig config,
 			Class<? extends PlugInListener>[] listnerClasses) {
-		List plugInListeners = Lists.newArrayList();
+		List<Object> plugInListeners = Lists.newArrayList();
 		for (Class<? extends PlugInListener> plClass : listnerClasses) {
 			Object pl = null;
 			// if status listener
