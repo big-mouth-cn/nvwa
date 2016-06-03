@@ -11,8 +11,6 @@
  */
 package org.bigmouth.nvwa.mybatis.page;
 
-import java.util.regex.Pattern;
-
 import org.apache.ibatis.session.RowBounds;
 
 
@@ -24,9 +22,6 @@ import org.apache.ibatis.session.RowBounds;
  */
 public class DefaultPaggingDialect implements PaggingDialect {
 
-    protected static final Pattern ORDERBY = Pattern.compile("order\\s+by\\s+[^,\\s]+(\\s+(asc|desc))?(\\s*,\\s*[^,\\s]+(\\s+(asc|desc))?\\s*)*", Pattern.CASE_INSENSITIVE);
-    protected static final String EMPTY = "";
-    
     /**
      * (non-Javadoc)
      * 
