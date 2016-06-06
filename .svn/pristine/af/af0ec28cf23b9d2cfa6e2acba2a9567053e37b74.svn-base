@@ -1,0 +1,1 @@
+<%=org.apache.asyncweb.common.integration.ResponseOutput.HELLO_WORLD %>

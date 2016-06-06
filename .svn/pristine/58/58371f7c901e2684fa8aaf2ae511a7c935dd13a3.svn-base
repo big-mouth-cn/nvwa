@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="zooKeeperCuratorWrapper" class="org.bigmouth.nvwa.cluster.node.ZooKeeperCuratorWrapper"
+		init-method="init" destroy-method="destroy">
+		<constructor-arg value="${zk.servers}" />
+		<constructor-arg value="${zk.sessionTimeout}" />
+	</bean>
+	
+	<bean id="ncMapper" class="org.bigmouth.nvwa.sap.namecode.DefaultNameCodeMapper" />
+
+	<!-- name code -->
+	<bean id="nameCodeUpdater" class="org.bigmouth.nvwa.cluster.NameCodeUpdater">
+		<property name="nameCodeMapper" ref="ncMapper" />
+	</bean>
+	<bean id="nameCodeDetector" class="org.bigmouth.nvwa.cluster.NameCodeDetector"
+		init-method="detect">
+		<property name="zk" ref="zooKeeperCuratorWrapper" />
+		<property name="watchPath" value="/NVWA/servicelogic/cluster/namecodes" />
+		<property name="updater" ref="nameCodeUpdater" />
+	</bean>
+	
+	<!-- base change monitor -->
+	<bean id="changeMonitor" class="org.bigmouth.nvwa.distributed.monitor.zk.CuratorChangeMonitor"
+		init-method="init" destroy-method="destroy">
+		<constructor-arg value="${zk.servers}" />
+		<constructor-arg value="${zk.sessionTimeout}" />
+	</bean>
+</beans>

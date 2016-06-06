@@ -24,15 +24,9 @@ import org.bigmouth.nvwa.servicelogic.handler.TransactionHandler;
 @TransactionService(name = "seq", code = "seq")
 public class SequenceService implements TransactionHandler<SequenceRequest, SequenceResponse> {
 
-    private com.mopote.mdum.common.sequence.SequenceService sequenceService;
     
     @Override
     public void handle(SequenceRequest requestModel, SequenceResponse responseModel) throws ResourceNotFoundException,
             TransactionException {
-        responseModel.setDesc(sequenceService.get());
-    }
-
-    public void setSequenceService(com.mopote.mdum.common.sequence.SequenceService sequenceService) {
-        this.sequenceService = sequenceService;
     }
 }

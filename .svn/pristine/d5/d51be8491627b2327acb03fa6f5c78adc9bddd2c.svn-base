@@ -1,0 +1,2 @@
+zk.servers=172.16.3.24:2181
+zk.sessionTimeout=60000

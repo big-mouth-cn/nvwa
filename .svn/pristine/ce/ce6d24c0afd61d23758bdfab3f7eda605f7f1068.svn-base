@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="propertyConfigurer" class="org.bigmouth.nvwa.zookeeper.config.ZkPropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="ignoreResourceNotFound" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:application.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<import resource="./applicationContext-distributed.xml"/>
+	<import resource="./applicationContext-mybatis.xml"/>
+	<import resource="./applicationContext-session.xml"/>
+	<import resource="./applicationContext-log.xml"/>
+	<import resource="./applicationContext-jmx.xml"/>
+	<import resource="./applicationContext-dubbo.xml"/>
+	
+	<bean class="org.bigmouth.nvwa.spring.SpringContextHolder" />
+
+	<!-- transport -->
+	<bean id="sapProtocolCodecFilter" class="org.apache.mina.filter.codec.ProtocolCodecFilter">
+		<constructor-arg ref="sapCodecFactory" />
+	</bean>
+	<bean id="sapCodecFactory" class="org.bigmouth.nvwa.sap.codec.SapCodecFactory">
+		<constructor-arg ref="ncMapper" />
+	</bean>
+	<bean id="minaReplier" class="org.bigmouth.nvwa.transport.MinaReplier">
+		<constructor-arg value="true" />
+	</bean>
+	<bean id="minaReceiver" class="org.bigmouth.nvwa.transport.MinaReplyReceiver" init-method="init" destroy-method="destroy">
+		<constructor-arg>
+			<bean class="org.bigmouth.nvwa.transport.TcpConfig">
+				<property name="reuseAddress" value="${servicelogic.tcp.reuseAddress}" />
+				<property name="receiveBufferSize" value="${servicelogic.tcp.receiveBufferSize}" />
+				<property name="sendBufferSize" value="${servicelogic.tcp.sendBufferSize}" />
+				<property name="tcpNoDelay" value="${servicelogic.tcp.tcpNoDelay}" />
+				<property name="soLinger" value="${servicelogic.tcp.soLinger}" />
+				<property name="backlog" value="${servicelogic.tcp.backlog}" />
+			</bean>
+		</constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry key="SapCodec">
+					<ref bean="sapProtocolCodecFilter" />
+				</entry>
+			</map>
+		</constructor-arg>
+		<constructor-arg value="${servicelogic.host}" />
+		<constructor-arg value="${servicelogic.port}" />
+		<property name="reactor" ref="serviceLogicReactor" />
+		<property name="replier" ref="minaReplier" />
+		<property name="receiverMBeanName" value="servicelogic:type=transport,name=receiver" />
+		<property name="receiverIoStatsMBeanName" value="servicelogic:type=transport,name=receiverIoStatistics" />
+		<property name="statisticsUpdater" ref="minaStatisticsUpdater" />
+		<property name="mbeanLifeCycleSupport" ref="mBeanExportSupport" />
+	</bean>
+
+	<!-- codec -->
+	<bean id="tlvEncoderProvider" class="org.bigmouth.nvwa.codec.tlv.TLVCodecProviders" factory-method="newBigEndianTLVEncoderProvider">
+	</bean>
+	<bean id="tlvDecoderProvider" class="org.bigmouth.nvwa.codec.tlv.TLVCodecProviders" factory-method="newBigEndianTLVDecoderProvider">
+	</bean>
+	<bean id="tlvContentEncoder" class="org.bigmouth.nvwa.servicelogic.codec.tlv.TlvContentEncoder">
+		<constructor-arg ref="tlvEncoderProvider" />
+	</bean>
+	<bean id="tlvContentDecoder" class="org.bigmouth.nvwa.servicelogic.codec.tlv.TlvContentDecoder">
+		<constructor-arg ref="tlvDecoderProvider" />
+	</bean>
+	<bean id="jsonContentEncoder" class="org.bigmouth.nvwa.servicelogic.codec.json.JsonContentEncoder">
+	</bean>
+	<bean id="jsonContentDecoder" class="org.bigmouth.nvwa.servicelogic.codec.json.JsonContentDecoder">
+	</bean>
+	<bean id="kvContentDecoder" class="org.bigmouth.nvwa.servicelogic.codec.kv.KvContentDecoder">
+	</bean>
+	<bean id="codecSelector" class="org.bigmouth.nvwa.servicelogic.codec.DefaultCodecSelector">
+		<constructor-arg>
+			<map>
+				<entry>
+					<key><value type="org.bigmouth.nvwa.sap.ContentType">TLV</value></key>
+					<ref bean="tlvContentEncoder" />
+				</entry>
+				<entry>
+					<key><value type="org.bigmouth.nvwa.sap.ContentType">JSON</value></key>
+					<ref bean="jsonContentEncoder" />
+				</entry>
+			</map>
+		</constructor-arg>
+		<constructor-arg>
+			<map>
+				<entry>
+					<key><value type="org.bigmouth.nvwa.sap.ContentType">TLV</value></key>
+					<ref bean="tlvContentDecoder" />
+				</entry>
+				<entry>
+					<key><value type="org.bigmouth.nvwa.sap.ContentType">JSON</value></key>
+					<ref bean="jsonContentDecoder" />
+				</entry>
+				<entry>
+					<key><value type="org.bigmouth.nvwa.sap.ContentType">KV</value></key>
+					<ref bean="kvContentDecoder" />
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<!-- reactor -->
+	<bean id="serviceLogicReactor" class="org.bigmouth.nvwa.servicelogic.ServiceLogicReactor">
+		<constructor-arg ref="plugInServiceBus" />
+		<constructor-arg ref="minaReplier" />
+	</bean>
+
+	<!-- dpl base -->
+	<bean id="plugInServiceController" class="org.bigmouth.nvwa.dpl.DefaultPlugInServiceController"
+		init-method="start" destroy-method="destroy">
+		<constructor-arg ref="plugInServiceBus" />
+		<constructor-arg value="../plugins/" />
+		<constructor-arg>
+			<list>
+				<bean class="org.bigmouth.nvwa.servicelogic.factory.MyBatisSupportDiscover" />
+				<bean class="org.bigmouth.nvwa.dpl.factory.SpringStylePlugInDiscover" />
+				<bean class="org.bigmouth.nvwa.dpl.factory.DefaultPlugInDiscover" />
+				<bean class="org.bigmouth.nvwa.dpl.factory.AnnotationPlugInDiscover" />
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="plugInServiceBus" class="org.bigmouth.nvwa.dpl.DefaultPlugInServiceBus" />
+
+	<!-- dpl listener -->
+	<bean id="plugInStatusListener" class="org.bigmouth.nvwa.dpl.status.PlugInStatusListener">
+		<constructor-arg ref="statusHolder" />
+	</bean>
+	<bean id="serviceStatusListener" class="org.bigmouth.nvwa.dpl.status.ServiceStatusListener">
+		<constructor-arg ref="statusHolder" />
+	</bean>
+	<bean id="loggingPlugInListener" class="org.bigmouth.nvwa.dpl.event.listener.LoggingPlugInListener">
+	</bean>
+	<bean id="loggingServiceListener" class="org.bigmouth.nvwa.dpl.event.listener.LoggingServiceListener">
+	</bean>
+
+	<!-- dpl status holder -->
+	<bean id="statusHolder" class="org.bigmouth.nvwa.dpl.status.FileSystemStatusHolder">
+		<constructor-arg value="../status/" />
+	</bean>
+
+	<!-- name code mapping -->
+	<bean id="ncMapper" class="org.bigmouth.nvwa.sap.namecode.DefaultNameCodeMapper">
+	</bean>
+</beans>

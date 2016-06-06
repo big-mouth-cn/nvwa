@@ -1,0 +1,43 @@
+zk.servers=172.16.3.24:2181
+zk.sessionTimeout=12000
+
+# transport
+servicelogic.host=0.0.0.0
+servicelogic.port=9999
+servicelogic.tcp.reuseAddress=true
+servicelogic.tcp.receiveBufferSize=20480
+servicelogic.tcp.sendBufferSize=20480
+servicelogic.tcp.tcpNoDelay=true
+servicelogic.tcp.soLinger=-1
+servicelogic.tcp.backlog=10240
+
+#cluster
+cluster.weights=5
+
+#jmx
+jmxmp.host=0.0.0.0
+jmxmp.port=10001
+
+dubbo.application.name=nvwa-servicelogic
+dubbo.registry.address=http://172.16.3.24:8034/mailiuliang/addrs.html
+dubbo.service.timeout=60000
+
+#memcached
+session.memcached.servers=172.16.3.218:11211
+session.memcached.pool.size=1
+session.memcached.cfg.soTimeout=10000
+session.expire=86400
+
+#master datasource
+jdbc.driverClass=org.postgresql.Driver
+jdbc.url=jdbc:postgresql://172.16.3.224:5432/mopinfm_test
+jdbc.username=mopinfm_test
+jdbc.password=mopinfm_test
+
+#log datasource
+db.log.driverClass=org.postgresql.Driver
+db.log.url=jdbc:postgresql://172.16.4.45:5432/skypcsuit_test?charSet=utf-8
+db.log.username=skypcsuit_test
+db.log.password=skypcsuit_test
+db.log.acquireRetryAttempts=3
+db.log.checkoutTimeout=20000

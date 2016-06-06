@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- frame -->
+	<bean name="frameTokyoTyrantClient" class="net.rubyeye.xmemcached.utils.XMemcachedClientFactoryBean">
+		<property name="servers">
+			<value>${memcached.frame.servers}</value>
+		</property>
+		<!-- nio connection pool size -->
+		<property name="connectionPoolSize" value="${memcached.frame.pool.size}"></property>
+		<!-- Serializing transcoder -->
+		<property name="transcoder">
+			<bean class="net.rubyeye.xmemcached.transcoders.TokyoTyrantTranscoder" />
+		</property>
+		<property name="configuration">
+			<bean class="com.google.code.yanf4j.config.Configuration">
+				<property name="soTimeout" value="${memcached.frame.cfg.soTimeout}" />
+				<property name="sessionReadBufferSize" value="${memcached.frame.cfg.sessionReadBufferSize}" />
+				<property name="readThreadCount" value="${memcached.frame.cfg.readThreadCount}" />
+				<property name="sessionIdleTimeout" value="${memcached.frame.cfg.sessionIdleTimeout}" />
+				<property name="writeThreadCount" value="${memcached.frame.cfg.writeThreadCount}" />
+			</bean>
+		</property>
+		<property name="opTimeout" value="${memcached.frame.cfg.opTimeout}" />
+	</bean>
+	<bean id="frameContentStore" class="org.bigmouth.nvwa.contentstore.impl.LocalCachedContentStore">
+		<property name="cache" ref="frameEhcache" />
+		<property name="contentStore">
+			<bean class="org.bigmouth.nvwa.contentstore.xmc.NioTokyotyrantContentStore">
+				<property name="memcachedClient" ref="frameTokyoTyrantClient" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="frameEhcache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+		<property name="cacheName" value="localContentStoreCache" />
+		<property name="maxElementsInMemory" value="${memcached.frame.local.maxCachedSize}" />
+		<property name="eternal" value="true" />
+		<property name="overflowToDisk" value="false" />
+		<property name="memoryStoreEvictionPolicy" value="LRU" />
+	</bean>
+	<bean id="frameContentStoreLocator" class="org.bigmouth.nvwa.access.service.sharding.DefaultContentStoreLocator" >
+		<constructor-arg ref="frameContentStore" />
+	</bean>
+</beans>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- base -->
+	<bean id="plugInServiceController"
+		class="org.bigmouth.nvwa.dpl.DefaultPlugInServiceController"
+		init-method="start" destroy-method="destroy">
+		<constructor-arg ref="plugInServiceBus" />
+		<constructor-arg value="D:/plugins/" />
+		<constructor-arg>
+			<list>
+				<bean class="org.bigmouth.nvwa.dpl.factory.SpringStylePlugInDiscover">
+					<constructor-arg ref="resourceSearchSupport" />
+				</bean>
+				<bean class="org.bigmouth.nvwa.dpl.factory.DefaultPlugInDiscover">
+					<constructor-arg ref="resourceSearchSupport" />
+				</bean>
+				<bean class="org.bigmouth.nvwa.dpl.factory.AnnotationPlugInDiscover">
+					<constructor-arg ref="resourceSearchSupport" />
+				</bean>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="plugInServiceBus" class="org.bigmouth.nvwa.dpl.DefaultPlugInServiceBus">
+	</bean>
+	
+	<bean id="resourceSearchSupport" class="org.bigmouth.nvwa.dpl.factory.ResourceSearchSupport">
+<!--		<constructor-arg value="org.bigmouth.dubbo.app.*" />-->
+<!--		<constructor-arg value="org/bigmouth/dubbo/app/*" />-->
+	</bean>
+
+	<!-- listener -->
+	<bean id="plugInStatusListener"
+		class="org.bigmouth.nvwa.dpl.status.PlugInStatusListener">
+		<constructor-arg ref="statusHolder" />
+	</bean>
+	<bean id="serviceStatusListener"
+		class="org.bigmouth.nvwa.dpl.status.ServiceStatusListener">
+		<constructor-arg ref="statusHolder" />
+	</bean>
+	<bean id="loggingPlugInListener"
+		class="org.bigmouth.nvwa.dpl.event.listener.LoggingPlugInListener">
+	</bean>
+	<bean id="loggingServiceListener"
+		class="org.bigmouth.nvwa.dpl.event.listener.LoggingServiceListener">
+	</bean>
+
+	<!-- status holder -->
+	<bean id="statusHolder"
+		class="org.bigmouth.nvwa.dpl.status.FileSystemStatusHolder">
+		<constructor-arg value="D:/status/" />
+	</bean>
+
+	<!-- test -->
+<!-- 	<bean id="serviceInvokeTest" class="org.bigmouth.nvwa.dpl.ServiceInvokeTest" -->
+<!-- 		init-method="start" destroy-method="stop"> -->
+<!-- 		<constructor-arg ref="plugInServiceBus" /> -->
+<!-- 	</bean> -->
+</beans>

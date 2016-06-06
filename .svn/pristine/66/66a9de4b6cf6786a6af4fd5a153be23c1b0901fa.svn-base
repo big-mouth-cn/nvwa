@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- jmxmp -->
+	<bean id="connectorServer" class="org.springframework.jmx.support.ConnectorServerFactoryBean">
+		<property name="serviceUrl" value="service:jmx:jmxmp://${jmxmp.host}:${jmxmp.port}" />
+		<property name="threaded" value="true" />
+		<property name="daemon" value="true" />
+	</bean>
+
+	<!-- statistics updater -->
+	<bean id="minaStatisticsUpdater" class="org.bigmouth.nvwa.transport.jmx.MinaStatisticsUpdater"
+		init-method="start" destroy-method="stop">
+	</bean>
+
+	<!-- mbean export support for mbean lifecycle -->
+	<bean id="mBeanExportSupport" class="org.bigmouth.nvwa.jmx.MBeanExportSupport" />
+
+	<!-- this bean must not be lazily initialized if the exporting is to happen -->
+	<!-- mbean definition -->
+	<bean id="exporter" class="org.springframework.jmx.export.MBeanExporter"
+		lazy-init="false">
+		<property name="beans">
+			<map>
+				<entry key="servicelogic:type=transport,name=replier" value-ref="minaReplier" />
+				<entry key="servicelogic:type=distributed,name=endpointRegistrar" value-ref="endpointRegistrar" />
+			</map>
+		</property>
+	</bean>
+</beans>

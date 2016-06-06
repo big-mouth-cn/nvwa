@@ -33,11 +33,6 @@
 			<version>0.9.1.2</version>
 		</dependency>
 		
-		<dependency>
-			<groupId>com.mopote</groupId>
-			<artifactId>mdum-common</artifactId>
-			<version>2.2.8</version>
-		</dependency>
 	</dependencies>
 
 	<build>
