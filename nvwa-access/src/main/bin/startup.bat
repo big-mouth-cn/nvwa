@@ -1,1 +1,0 @@
-java -Xms256m -Xmx512m -XX:PermSize=64m -XX:MaxPermSize=64m -XX:+HeapDumpOnOutOfMemoryError -Dxmemcached.jmx.enable=true -jar ../lib/nvwa-access-1.0.0.jar

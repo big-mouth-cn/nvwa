@@ -166,9 +166,5 @@
 		<module>nvwa-cache</module>
 		<module>nvwa</module>
 		<module>nvwa-zkadmin</module>
-		<module>nvwa-access</module>
-		<module>nvwa-servicelogic</module>
-		<module>nvwa-servicelogic-plugin-parent</module>
-		<module>nvwa-servicelogic-plugin-demo</module>
 	</modules>
 </project>
