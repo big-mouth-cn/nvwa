@@ -2,7 +2,7 @@ package org.bigmouth.nvwa.cluster.node;
 
 import org.apache.commons.lang.ArrayUtils;
 
-public abstract class DataDetector<T> {
+public abstract class DataDetector<T> implements IDataDetector {
 
     private static final String NODE_INIT_VALUE = "[{\"plugInName\":\"access\",\"plugInCode\":0,\"serviceName\":\"default\",\"serviceCode\":0}]";
 	private Wrapper zk;
@@ -44,5 +44,23 @@ public abstract class DataDetector<T> {
 
 	public void setUpdater(Updatable<T> updater) {
 		this.updater = updater;
-	}
+    }
+
+    public Wrapper getZk() {
+        return zk;
+    }
+
+    @Override
+    public Wrapper getWrapper() {
+        return zk;
+    }
+
+    @Override
+    public String getWatchPath() {
+        return watchPath;
+    }
+
+    public Updatable<T> getUpdater() {
+        return updater;
+    }
 }

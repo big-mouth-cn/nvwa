@@ -34,6 +34,32 @@ public class ZooKeeperCuratorWrapper implements Wrapper {
     }
 
     @Override
+    public boolean setData(String path, byte[] value) {
+        if (StringUtils.isBlank(path))
+            throw new IllegalArgumentException("path is blank");
+        try {
+            Stat stat = zkClient.checkExists().forPath(path);
+            byte[] data = value;
+            if (null == data || data.length == 0)
+                data = new byte[0];
+            if (null == stat) {
+                zkClient.create().creatingParentsIfNeeded().forPath(path, data);
+                if (LOGGER.isInfoEnabled()) {
+                    LOGGER.info("Created ZooKeeper path: {}", path);
+                }
+            }
+            else {
+                zkClient.setData().forPath(path, data);
+            }
+            return true;
+        }
+        catch (Exception e) {
+            LOGGER.error("setData: ", e);
+            return false;
+        }
+    }
+
+    @Override
     public byte[] getData(String path) {
         return getData(path, new byte[0]);
     }

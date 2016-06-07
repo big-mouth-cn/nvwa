@@ -76,7 +76,29 @@ public final class ZooKeeperWrapper implements Wrapper {
 		return listeners.get(path);
 	}
 
-	public byte[] getData(String path) {
+	@Override
+    public boolean setData(String path, byte[] value) {
+	    if (!initialized) {
+	        throw new IllegalStateException("ZooKeeperWrapper has not been initialized yet.");
+	    }
+	    if (StringUtils.isBlank(path))
+            throw new IllegalArgumentException("path is blank.");
+        try {
+            Stat stat = zk.exists(path, true);
+            if (null == stat) {
+                throw new NoSuchPathException("path:" + path);
+            }
+            zk.setData(path, value, stat.getVersion() + 1);
+            return true;
+        } catch (KeeperException e) {
+            LOGGER.error("setData: ", e);
+        } catch (InterruptedException e) {
+            LOGGER.error("setData: ", e);
+        }
+        return false;
+    }
+
+    public byte[] getData(String path) {
 		if (!initialized)
 			throw new IllegalStateException("ZooKeeperWrapper has not been initialized yet.");
 		if (StringUtils.isBlank(path))
