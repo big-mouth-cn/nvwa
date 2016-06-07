@@ -215,7 +215,7 @@ public class PageInfo<T> extends RowBounds implements Serializable {
     public String toString() {
         StringBuffer sb = new StringBuffer();
         sb.append("PageInfo{").append("  pageNo=").append(pageNo).append(", pageSize=").append(pageSize)
-                .append(", totalCount=").append(totalCount).append('}');
+                .append(", totalCount=").append(totalCount).append(", totalPage=").append(totalPage).append('}');
         return sb.toString();
     }
 

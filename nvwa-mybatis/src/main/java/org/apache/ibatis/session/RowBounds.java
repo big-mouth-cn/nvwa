@@ -11,11 +11,6 @@
  */
 package org.apache.ibatis.session;
 
-/**
- * 
- * @author Allen.Hu / 2012-7-6
- * 针对mybatis不同方言的分页实现中增加“总记录数”
- */
 public class RowBounds {
 
     public final static int NO_ROW_OFFSET = 0;
@@ -24,7 +19,7 @@ public class RowBounds {
 
     public final static RowBounds DEFAULT = new RowBounds();
 
-    public final static String COUNT_COLUMN_ALIAS = "ROW_COUNT_ASDFG_ASDFG__";
+    public final static String COUNT_COLUMN_ALIAS = "ROW_COUNT_NVWA_MYBATIS";
 
     // pageNo
     protected int offset;

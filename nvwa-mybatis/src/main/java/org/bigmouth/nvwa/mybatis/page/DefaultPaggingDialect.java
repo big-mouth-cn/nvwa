@@ -11,6 +11,8 @@
  */
 package org.bigmouth.nvwa.mybatis.page;
 
+import java.util.regex.Pattern;
+
 import org.apache.ibatis.session.RowBounds;
 
 
@@ -22,6 +24,9 @@ import org.apache.ibatis.session.RowBounds;
  */
 public class DefaultPaggingDialect implements PaggingDialect {
 
+    protected static final Pattern ORDERBY = Pattern.compile("order\\s+by\\s+[^,\\s]+(\\s+(asc|desc))?(\\s*,\\s*[^,\\s]+(\\s+(asc|desc))?\\s*)*", Pattern.CASE_INSENSITIVE);
+    protected static final String EMPTY = "";
+    
     /**
      * (non-Javadoc)
      * 
@@ -29,7 +34,8 @@ public class DefaultPaggingDialect implements PaggingDialect {
      */
     @Override
     public String getCountSql(String querySql) {
-        return "SELECT COUNT(*) " + RowBounds.COUNT_COLUMN_ALIAS + " FROM (" + querySql + ")";
+        querySql = ORDERBY.matcher(querySql).replaceAll(EMPTY);
+        return "SELECT COUNT(0) " + RowBounds.COUNT_COLUMN_ALIAS + " FROM (" + querySql + ") AS COUNT_TABLE";
     }
 
     /**

@@ -12,7 +12,6 @@
 package org.bigmouth.nvwa.mybatis.page.postgre;
 
 
-import org.apache.ibatis.session.RowBounds;
 import org.bigmouth.nvwa.mybatis.page.DefaultPaggingDialect;
 
 
@@ -33,15 +32,4 @@ public class PostgreSqlPaggingDialect extends DefaultPaggingDialect {
         String sql = querySql.trim() + " OFFSET " + begin + " LIMIT " + myPageSize;
         return sql;
     }
-
-    @Override
-    public String getCountSql(String querySql) {
-//        querySql = querySql.trim().toUpperCase();
-//        String endSql = querySql.substring(querySql.indexOf("FROM"));
-//        if (endSql.toUpperCase().indexOf("ORDER BY") != -1) {
-//            endSql = endSql.substring(0, endSql.toUpperCase().indexOf("ORDER BY"));            
-//        }
-        return "SELECT COUNT(*) " + RowBounds.COUNT_COLUMN_ALIAS + " FROM (" + querySql + ") AS TEMP_TABLE";
-    }
-
 }

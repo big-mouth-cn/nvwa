@@ -11,8 +11,7 @@
  */
 package org.bigmouth.nvwa.mybatis.page.mysql;
 
-import org.apache.ibatis.session.RowBounds;
-import org.bigmouth.nvwa.mybatis.page.PaggingDialect;
+import org.bigmouth.nvwa.mybatis.page.DefaultPaggingDialect;
 
 /**
  * MySql分页方言. 注意MySQL的分页方式, limit值含义: 起始行(从0开始), 返回行数,
@@ -26,7 +25,7 @@ import org.bigmouth.nvwa.mybatis.page.PaggingDialect;
  * @author Allen.Hu / 2012-7-5
  * @since Bigmouth-Framework 1.0
  */
-public class MySqlPaggingDialect implements PaggingDialect {
+public class MySqlPaggingDialect extends DefaultPaggingDialect {
 
     @Override
     public String getPaggingSql(String querySql, int pageNo, int pageSize) {
@@ -37,13 +36,4 @@ public class MySqlPaggingDialect implements PaggingDialect {
         String sql = querySql.trim() + " limit " + begin + " ," + myPageSize;
         return sql;
     }
-
-    @Override
-    public String getCountSql(String querySql) {
-        querySql = querySql.trim().toLowerCase();
-        String endSql = querySql.substring(querySql.indexOf("FROM"));
-
-        return "SELECT COUNT(*) " + RowBounds.COUNT_COLUMN_ALIAS + " " + endSql;
-    }
-
 }
