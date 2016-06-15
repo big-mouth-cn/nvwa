@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<spring.version>3.1.4.RELEASE</spring.version>
+		<spring.bom.version>3.2.9.RELEASE</spring.bom.version>
 		<xmemcached_version>1.2.6.3</xmemcached_version>
 		<maven-surefire-plugin_version>2.17</maven-surefire-plugin_version>
 	</properties>
@@ -30,6 +30,17 @@
 		</repository>
 	</repositories>
 	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${spring.bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<distributionManagement>
 		<repository>
 			<id>nexus-release</id>
