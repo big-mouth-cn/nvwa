@@ -128,6 +128,8 @@ public class DefaultPlugInServiceController implements PlugInServiceController, 
 
 	private void addPlugIn(String f) {
 		String plugInCode = installPlugIn(f);
+		if (StringUtils.isBlank(plugInCode))
+		    return;
 		filePathAndCodeMap.put(f, plugInCode);
 	}
 
@@ -166,7 +168,10 @@ public class DefaultPlugInServiceController implements PlugInServiceController, 
 	}
 
 	private String doInstallPlugIn(String plugInPath) {
-		MutablePlugIn plugIn = (MutablePlugIn) createPlugIn(plugInPath);
+		PlugIn pg = createPlugIn(plugInPath);
+		if (null == pg)
+		    return null;
+        MutablePlugIn plugIn = (MutablePlugIn) pg;
 		plugIn.setInstallPath(plugInPath);
 		plugIn.init();
 
@@ -194,8 +199,11 @@ public class DefaultPlugInServiceController implements PlugInServiceController, 
 					break;
 			}
 			if (null == plugIn) {
-				// TODO:IllegalPlugInFormatException?
-				throw new RuntimeException("PlugIn format error.");
+//				throw new RuntimeException("PlugIn format error.");
+			    if (LOGGER.isErrorEnabled()) {
+			        LOGGER.error("PlugIn[" + pcl.getPlugInJarPath() + "] format error.");
+			    }
+			    return null;
 			}
 			plugIn.setClassLoader(pcl);
 
