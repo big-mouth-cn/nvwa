@@ -27,6 +27,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.bigmouth.nvwa.network.http.HttpClientHelper;
+import org.bigmouth.nvwa.utils.StringHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -71,7 +72,7 @@ public class HttpUtils {
             List<NameValuePair> pairs = request.getPairs();
             List<Header> headers = request.getHeaders();
             if (method == Method.POST) {
-                HttpPost post = HttpClientHelper.post(url);
+                HttpPost post = new HttpPost(url);
                 byte[] entity = request.getEntity();
                 if (!CollectionUtils.isEmpty(pairs)) {
                     if (LOGGER.isDebugEnabled()) {
@@ -88,7 +89,7 @@ public class HttpUtils {
                 requestBase = post;
             }
             else if (method == Method.GET) {
-                HttpGet get = HttpClientHelper.get(url);
+                HttpGet get = new HttpGet(url);
                 if (!CollectionUtils.isEmpty(pairs)) {
                     if (LOGGER.isDebugEnabled()) {
                         LOGGER.debug("请求参数-{}", pairs);
@@ -121,11 +122,12 @@ public class HttpUtils {
                     throw new UnexpectStatusCodeException(statusCode);
             }
 
-            String response = HttpClientHelper.getResponseBody(httpResponse, false, request.getCharset());
+            byte[] entity = HttpClientHelper.getResponse(httpResponse);
             Header[] allHeaders = httpResponse.getAllHeaders();
             HttpResponse hrp = new HttpResponse();
+            hrp.setEntity(entity);
             hrp.addAllHeaders(allHeaders);
-            hrp.setEntityString(response);
+            hrp.setEntityString(StringHelper.convert(entity));
             hrp.setStatusCode(statusCode);
             return hrp;
         }

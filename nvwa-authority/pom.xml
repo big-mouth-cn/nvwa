@@ -25,7 +25,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.bigmouth</groupId>
-			<artifactId>nvwa-mybatis</artifactId>
+			<artifactId>nvwa-mybatis3</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
 		<dependency>

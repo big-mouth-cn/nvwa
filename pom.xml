@@ -23,11 +23,6 @@
 			<name>Slowlyofficesite</name>
 			<url>http://repo1.maven.org/maven2</url>
 		</repository>
-		<repository>
-			<id>nexus-release</id>
-			<name>Nexus Release Repository</name>
-			<url>http://172.16.3.24/nexus/content/repositories/releases/</url>
-		</repository>
 	</repositories>
 	
 	<dependencyManagement>
@@ -41,18 +36,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	<distributionManagement>
-		<repository>
-			<id>nexus-release</id>
-			<name>Nexus Release Repository</name>
-			<url>http://172.16.3.24/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>nexus-snapshot</id>
-			<name>Nexus Snapshot Repository</name>
-			<url>http://172.16.3.24/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
 
 	<build>
 		<plugins>
@@ -154,10 +137,12 @@
 	</dependencies>
 	<modules>
 		<module>nvwa-utils</module>
+		<module>nvwa-office</module>
 		<module>nvwa-validate</module>
 		<module>nvwa-network</module>
 		<module>nvwa-spring</module>
-		<module>nvwa-mybatis</module>
+<!-- 		<module>nvwa-mybatis</module> -->
+		<module>nvwa-mybatis3</module>
 		<module>nvwa-xmemcached</module>
 		<module>nvwa-asyncweb</module>
 		<module>nvwa-session</module>

@@ -171,6 +171,10 @@ public final class HttpClientHelper {
         return get(uri, null, null);
     }
     
+    public static HttpGet get(String uri, boolean addBasicHeaders) {
+        return get(uri, null, null, addBasicHeaders);
+    }
+    
     public static HttpGet get(String uri, Response response) {
         return get(uri, response, null);
     }
@@ -180,8 +184,13 @@ public final class HttpClientHelper {
     }
     
     public static HttpGet get(String url, Response response, Header[] headers) {
+        return get(url, response, headers, true);
+    }
+    
+    public static HttpGet get(String url, Response response, Header[] headers, boolean addBasicHeaders) {
         HttpGet httpGet = new HttpGet(url);
-        setRequestBaseHeader(httpGet);
+        if (addBasicHeaders)
+            setRequestBaseHeader(httpGet);
         if (null != response) {
             setRequestCookie(httpGet, getCookieHeaders(response));
         }
@@ -189,9 +198,12 @@ public final class HttpClientHelper {
         return httpGet;
     }
     
-    
     public static HttpPost post(String uri) {
         return post(uri, null, null);
+    }
+    
+    public static HttpPost post(String uri, boolean addBasicHeaders) {
+        return post(uri, null, null, addBasicHeaders);
     }
     
     public static HttpPost post(String uri, Response response) {
@@ -203,15 +215,20 @@ public final class HttpClientHelper {
     }
     
     public static HttpPost post(String url, Response response, Header[] headers) {
+        return post(url, response, headers, true);
+    }
+
+    public static HttpPost post(String url, Response response, Header[] headers, boolean addBasicHeaders) {
         HttpPost httpPost = new HttpPost(url);
-        setRequestBaseHeader(httpPost);
+        if (addBasicHeaders)
+            setRequestBaseHeader(httpPost);
         if (null != response) {
             setRequestCookie(httpPost, getCookieHeaders(response));
         }
         setRequestHeader(httpPost, headers);
         return httpPost;
     }
-
+    
     private static Header[] getCookieHeaders(Response response) {
         List<Header> cookies = Lists.newArrayList();
         List<Header> responseHeaders = response.getHeaders();
@@ -405,6 +422,11 @@ public final class HttpClientHelper {
     }
     
     public static byte[] getResponse(HttpResponse httpResponse) throws IOException {
+        boolean isGzip = isGZIPEncoding(httpResponse);
+        return ! isGzip ? getResponseWithoutGzip(httpResponse) : getResponseWithGzip(httpResponse);
+    }
+    
+    public static byte[] getResponseWithoutGzip(HttpResponse httpResponse) throws IOException {
         if (null == httpResponse) {
             return null;
         }
@@ -423,6 +445,32 @@ public final class HttpClientHelper {
         }
         finally {
             IOUtils.closeQuietly(out);
+            IOUtils.closeQuietly(is);
+        }
+    }
+    
+    public static byte[] getResponseWithGzip(HttpResponse httpResponse) throws IOException {
+        if (null == httpResponse) {
+            return null;
+        }
+        ByteArrayOutputStream out = null;
+        InputStream is = null;
+        GZIPInputStream gzip = null;
+        try {
+            is = httpResponse.getEntity().getContent();
+            gzip = new GZIPInputStream(is);
+            out = new ByteArrayOutputStream();
+            byte[] bytes = new byte[2048];
+            int len;
+            while ((len = gzip.read(bytes)) != -1) {
+                out.write(bytes, 0, len);
+            }
+            out.flush();
+            return out.toByteArray();
+        }
+        finally {
+            IOUtils.closeQuietly(out);
+            IOUtils.closeQuietly(gzip);
             IOUtils.closeQuietly(is);
         }
     }

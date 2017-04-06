@@ -160,6 +160,7 @@ public final class AesUtils {
             System.out.println(AesUtils.encrypt("123456", "gkxEwVfJUJA2BpohktvyrfJLEnvlQYt7", INIT_VECTOR));
             System.out.println(AesUtils.encrypt("123456", "gkxEwVfJUJA2BpohktvyrfJLEnvlQYt7", "176543218'653#23".getBytes()));
             
+            System.out.println(AesUtils.encrypt("1054", "xdD5NO3x7y6X1cBBYM1YZxfMsSJzaZEO"));
         }
         catch (Exception e) {
             e.printStackTrace();
