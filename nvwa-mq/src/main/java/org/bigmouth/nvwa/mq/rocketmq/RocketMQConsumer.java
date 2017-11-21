@@ -39,7 +39,7 @@ public class RocketMQConsumer extends BaseLifeCycleSupport implements Consumer {
     private final DefaultMQPushConsumer consumer;
 
     private final String namesrvAddr;
-    private final MessageListener messageListener;
+    private MessageListener messageListener;
     private final String consumerGroup;
     private String subExpression;
 
@@ -49,7 +49,6 @@ public class RocketMQConsumer extends BaseLifeCycleSupport implements Consumer {
 
     public RocketMQConsumer(String namesrvAddr, MessageListener messageListener, String consumerGroup) {
         super();
-        Preconditions.checkNotNull(messageListener);
         this.namesrvAddr = namesrvAddr;
         this.messageListener = messageListener;
         this.consumerGroup = consumerGroup;
@@ -129,6 +128,10 @@ public class RocketMQConsumer extends BaseLifeCycleSupport implements Consumer {
 
     public String getNamesrvAddr() {
         return namesrvAddr;
+    }
+    
+    public void setMessageListener(MessageListener messageListener) {
+        this.messageListener = messageListener;
     }
 
     public MessageListener getMessageListener() {

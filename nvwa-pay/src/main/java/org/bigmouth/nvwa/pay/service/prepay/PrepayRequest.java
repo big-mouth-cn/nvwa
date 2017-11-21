@@ -40,6 +40,8 @@ public class PrepayRequest implements Serializable {
     private String detail;
     /** 附加参数 */
     private String attach;
+    /** 商户系统内部的订单号,32个字符内、可包含字母 */
+    private String outTradeNo;
     /** 商品金额。单位：分 */
     private int fee;
     /** 终端IP */
@@ -52,6 +54,7 @@ public class PrepayRequest implements Serializable {
     public void validate() {
         Preconditions.checkArgument(StringUtils.isNotBlank(appId), "appId");
         Preconditions.checkArgument(StringUtils.isNotBlank(description), "description");
+        Preconditions.checkArgument(StringUtils.isNotBlank(outTradeNo), "outTradeNo");
         Preconditions.checkArgument(fee > 0, "fee must > 0");
         Preconditions.checkArgument(StringUtils.isNotBlank(ip), "ip");
         Preconditions.checkArgument(StringUtils.isNotBlank(notifyUrl), "notifyUrl");
@@ -88,6 +91,14 @@ public class PrepayRequest implements Serializable {
     
     public void setAttach(String attach) {
         this.attach = attach;
+    }
+    
+    public String getOutTradeNo() {
+        return outTradeNo;
+    }
+
+    public void setOutTradeNo(String outTradeNo) {
+        this.outTradeNo = outTradeNo;
     }
 
     public int getFee() {

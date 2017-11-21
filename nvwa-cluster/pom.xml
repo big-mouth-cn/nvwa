@@ -11,19 +11,6 @@
 	<properties>
 	</properties>
 
-	<distributionManagement>
-		<repository>
-			<id>nexus-release</id>
-			<name>Nexus Release Repository</name>
-			<url>http://172.16.3.24/nexus/content/repositories/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>nexus-snapshot</id>
-			<name>Nexus Snapshot Repository</name>
-			<url>http://172.16.3.24/nexus/content/repositories/snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-
 	<dependencies>
 
 

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.alibaba.rocketmq:rocketmq-common:3.2.5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../program/apache-maven-3.0.5/repo/com/alibaba/rocketmq/rocketmq-common/3.2.5/rocketmq-common-3.2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../program/apache-maven-3.0.5/repo/com/alibaba/rocketmq/rocketmq-common/3.2.5/rocketmq-common-3.2.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../program/apache-maven-3.0.5/repo/com/alibaba/rocketmq/rocketmq-common/3.2.5/rocketmq-common-3.2.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

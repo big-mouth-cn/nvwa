@@ -1,0 +1,915 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5a687ae2-4fa1-4935-a4d0-a1cd5ecd18f5" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nvwa-pay/target/nvwa-pay-1.0.0-SNAPSHOT-sources.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nvwa-utils/src/main/java/org/bigmouth/nvwa/utils/qrcode/TwoDimensionCode.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nvwa-utils/src/main/java/org/bigmouth/nvwa/utils/qrcode/TwoDimensionCodeImage.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/PayDefaults.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/PayDefaults.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/PayProvider.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/PayProvider.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/Callback.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/Callback.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/alipay/AlipayCallback.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/alipay/AlipayCallback.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/alipay/AlipayCallbackArgument.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/alipay/AlipayCallbackArgument.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/wx/WxCallback.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/wx/WxCallback.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/wx/WxCallbackArgument.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/wx/WxCallbackArgument.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/wx/WxCallbackResponse$Respond.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/wx/WxCallbackResponse$Respond.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/wx/WxCallbackResponse.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/callback/wx/WxCallbackResponse.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/prepay/AbstractPrepay.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/prepay/AbstractPrepay.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/prepay/PrepayRequest.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/prepay/PrepayRequest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/prepay/wx/WxPrepayInsideRequest.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/prepay/wx/WxPrepayInsideRequest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/prepay/wx/WxPrepayInsideResponse.class" afterPath="$PROJECT_DIR$/nvwa-pay/target/classes/org/bigmouth/nvwa/pay/service/prepay/wx/WxPrepayInsideResponse.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/target/nvwa-pay-1.0.0-sources.jar" afterPath="$PROJECT_DIR$/nvwa-pay/target/nvwa-pay-1.0.0-sources.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-asyncweb/pom.xml" afterPath="$PROJECT_DIR$/nvwa-asyncweb/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-cluster/pom.xml" afterPath="$PROJECT_DIR$/nvwa-cluster/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-mq/src/main/java/org/bigmouth/nvwa/mq/ProducerFactory.java" afterPath="$PROJECT_DIR$/nvwa-mq/src/main/java/org/bigmouth/nvwa/mq/ProducerFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-mq/src/main/java/org/bigmouth/nvwa/mq/rocketmq/RocketMQConsumer.java" afterPath="$PROJECT_DIR$/nvwa-mq/src/main/java/org/bigmouth/nvwa/mq/rocketmq/RocketMQConsumer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-network/pom.xml" afterPath="$PROJECT_DIR$/nvwa-network/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-network/src/main/java/org/bigmouth/nvwa/network/http/HttpClientHelper.java" afterPath="$PROJECT_DIR$/nvwa-network/src/main/java/org/bigmouth/nvwa/network/http/HttpClientHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-office/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/nvwa-office/.settings/org.eclipse.jdt.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/.classpath" afterPath="$PROJECT_DIR$/nvwa-pay/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/.project" afterPath="$PROJECT_DIR$/nvwa-pay/.project" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/callback/Callback.java" afterPath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/callback/Callback.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/callback/alipay/AlipayCallback.java" afterPath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/callback/alipay/AlipayCallback.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/callback/wx/WxCallback.java" afterPath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/callback/wx/WxCallback.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/callback/wx/WxCallbackResponse.java" afterPath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/callback/wx/WxCallbackResponse.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/prepay/PrepayRequest.java" afterPath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/prepay/PrepayRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/prepay/wx/WxPrepayInsideRequest.java" afterPath="$PROJECT_DIR$/nvwa-pay/src/main/java/org/bigmouth/nvwa/pay/service/prepay/wx/WxPrepayInsideRequest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-session/pom.xml" afterPath="$PROJECT_DIR$/nvwa-session/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-utils/pom.xml" afterPath="$PROJECT_DIR$/nvwa-utils/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-xmemcached/.classpath" afterPath="$PROJECT_DIR$/nvwa-xmemcached/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-xmemcached/.settings/org.eclipse.core.resources.prefs" afterPath="$PROJECT_DIR$/nvwa-xmemcached/.settings/org.eclipse.core.resources.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-xmemcached/pom.xml" afterPath="$PROJECT_DIR$/nvwa-xmemcached/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-zkadmin/src/main/webapp/js/node.js" afterPath="$PROJECT_DIR$/nvwa-zkadmin/src/main/webapp/js/node.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-zookeeper/src/test/etc/application.properties" afterPath="$PROJECT_DIR$/nvwa-zookeeper/src/test/etc/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-zookeeper/src/test/etc/test/config/application.properties" afterPath="$PROJECT_DIR$/nvwa-zookeeper/src/test/etc/test/config/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-zookeeper/src/test/main/org/bigmouth/nvwa/zookeeper/test/SynchronousService.java" afterPath="$PROJECT_DIR$/nvwa-zookeeper/src/test/main/org/bigmouth/nvwa/zookeeper/test/SynchronousService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa-zookeeper/src/test/main/org/bigmouth/nvwa/zookeeper/test/SynchronousTest.java" afterPath="$PROJECT_DIR$/nvwa-zookeeper/src/test/main/org/bigmouth/nvwa/zookeeper/test/SynchronousTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nvwa/pom.xml" afterPath="$PROJECT_DIR$/nvwa/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+    </list>
+    <ignored path="$PROJECT_DIR$/nvwa-log/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-jmx/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-zookeeper/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-codec-core/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-transport/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-sap/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-spring/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-cache/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-zkadmin/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-mybatis3/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-validate/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-asyncweb/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-contentstore/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-mq/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-dpl/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-session/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-utils/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-xmemcached/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-log4mongo/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-office/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-cluster/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-distributed/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-authority/target/" />
+    <ignored path="$PROJECT_DIR$/nvwa-network/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="PlugInClassLoader.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nvwa-dpl/src/main/java/org/bigmouth/nvwa/dpl/hotswap/PlugInClassLoader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="106" column="40" lean-forward="false" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
+              <folding>
+                <element signature="e#4167#4175#0" expanded="true" />
+                <element signature="e#4243#4261#0" expanded="true" />
+                <element signature="e#17831#17839#0" expanded="true" />
+                <element signature="e#22479#22509#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>finalize</find>
+      <find>nativeLibraries</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/nvwa-dpl/src/main/java/org/bigmouth/nvwa/dpl/hotswap/PlugInClassLoader.java" />
+        <option value="$PROJECT_DIR$/nvwa-dpl/src/main/java/org/bigmouth/nvwa/dpl/event/listener/RuntimeObjectHolder.java" />
+        <option value="$PROJECT_DIR$/nvwa-zookeeper/src/main/java/org/bigmouth/nvwa/zookeeper/queue/SimpleQueue.java" />
+        <option value="$PROJECT_DIR$/nvwa-zookeeper/src/test/etc/application.properties" />
+        <option value="$PROJECT_DIR$/nvwa-zookeeper/src/test/etc/test/config/application.properties" />
+        <option value="$PROJECT_DIR$/nvwa-zookeeper/src/test/main/org/bigmouth/nvwa/zookeeper/test/SynchronousTest.java" />
+        <option value="$PROJECT_DIR$/nvwa-zookeeper/src/test/main/org/bigmouth/nvwa/zookeeper/test/SynchronousService.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="alwaysUpdateSnapshots" value="true" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../program/apache-maven-3.0.5" />
+        <option name="userSettingsFile" value="$PROJECT_DIR$/../../program/apache-maven-3.0.5/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="203" />
+    <option name="width" value="1440" />
+    <option name="height" value="839" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="nvwa-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nvwa" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nvwa-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nvwa" type="462c0819:PsiDirectoryNode" />
+              <item name="nvwa-dpl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nvwa-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nvwa" type="462c0819:PsiDirectoryNode" />
+              <item name="nvwa-dpl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nvwa-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nvwa" type="462c0819:PsiDirectoryNode" />
+              <item name="nvwa-dpl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nvwa-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nvwa" type="462c0819:PsiDirectoryNode" />
+              <item name="nvwa-dpl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nvwa-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nvwa" type="462c0819:PsiDirectoryNode" />
+              <item name="nvwa-dpl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dpl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="nvwa-parent" type="b2602c69:ProjectViewProjectNode" />
+              <item name="nvwa" type="462c0819:PsiDirectoryNode" />
+              <item name="nvwa-dpl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="dpl" type="462c0819:PsiDirectoryNode" />
+              <item name="hotswap" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="HashMap&#9;PSI&#9;JAVA://java.util.HashMap&#10;Interceptor&#9;PSI&#9;JAVA://org.bigmouth.nvwa.authority.interceptor.AuthorityInterceptor&#10;Lock&#9;FILE&#9;jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/rt.jar!/java/util/concurrent/locks/Lock.class" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.SynchronousTest">
+    <configuration name="SynchronousTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.bigmouth.nvwa.zookeeper.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.bigmouth.nvwa.zookeeper.test.SynchronousTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="nvwa-zookeeper" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.SynchronousTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5a687ae2-4fa1-4935-a4d0-a1cd5ecd18f5" name="Default" comment="" />
+      <created>1508488097927</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1508488097927</updated>
+      <workItem from="1508488101308" duration="3626000" />
+      <workItem from="1508849397439" duration="2311000" />
+      <workItem from="1508860155063" duration="872000" />
+      <workItem from="1508925277536" duration="5812000" />
+      <workItem from="1509029143984" duration="979000" />
+      <workItem from="1509077152683" duration="5048000" />
+      <workItem from="1509196319077" duration="1934000" />
+      <workItem from="1509889313203" duration="1905000" />
+      <workItem from="1510131252103" duration="1154000" />
+      <workItem from="1510280416385" duration="597000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="24238000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="203" width="1440" height="839" extended-state="0" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39919356" sideWeight="0.50277776" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23472223" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21736111" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22446236" sideWeight="0.49722221" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23472223" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" x="551" y="70" width="338" height="744" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.49722221" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/nvwa-zookeeper/src/main/java/org/bigmouth/nvwa/zookeeper/concurrent/MutexLockSynchronous.java</url>
+          <line>41</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="path" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="jar://$PROJECT_DIR$/../../program/apache-maven-3.0.5/repo/org/springframework/spring-webmvc/3.2.9.RELEASE/spring-webmvc-3.2.9.RELEASE-sources.jar!/org/springframework/web/servlet/HandlerInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="91" column="17" lean-forward="false" selection-start-line="91" selection-start-column="17" selection-end-line="91" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/jre/lib/rt.jar!/sun/misc/Unsafe.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="309" column="25" lean-forward="false" selection-start-line="309" selection-start-column="25" selection-end-line="309" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/concurrent/ConcurrentHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3207">
+          <caret line="266" column="20" lean-forward="true" selection-start-line="266" selection-start-column="20" selection-end-line="266" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="620" column="44" lean-forward="false" selection-start-line="620" selection-start-column="44" selection-end-line="620" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../program/apache-maven-3.0.5/repo/org/springframework/spring-webmvc/3.2.9.RELEASE/spring-webmvc-3.2.9.RELEASE-sources.jar!/org/springframework/web/servlet/handler/AbstractUrlHandlerMapping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="145" column="24" lean-forward="false" selection-start-line="145" selection-start-column="24" selection-end-line="145" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../program/apache-maven-3.0.5/repo/org/springframework/spring-webmvc/3.2.9.RELEASE/spring-webmvc-3.2.9.RELEASE-sources.jar!/org/springframework/web/servlet/ModelAndView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="43" column="13" lean-forward="false" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/test/java/com/skymobi/market/commons/validate/ValidateTestSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="19" lean-forward="false" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/test/java/com/skymobi/market/commons/validate/factory/AnnotationValidatorFactoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="20" column="17" lean-forward="false" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/test/java/com/skymobi/market/commons/validate/factory/AnnoBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/main/java/org/bigmouth/nvwa/validate/Validator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/main/java/org/bigmouth/nvwa/validate/NoopValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/main/java/org/bigmouth/nvwa/validate/CompareValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/main/java/org/bigmouth/nvwa/validate/internal/NotNullValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/main/java/org/bigmouth/nvwa/validate/AbstractValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/main/java/org/bigmouth/nvwa/validate/factory/ThreadLocalValidatorFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/main/java/org/bigmouth/nvwa/validate/factory/AnnotationValidatorFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="210" column="41" lean-forward="false" selection-start-line="210" selection-start-column="41" selection-end-line="210" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/main/java/org/bigmouth/nvwa/validate/annotation/ValidateLength.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/test/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/test/java/com/skymobi/market/commons/validate/ValidateTestSuite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/test/java/com/skymobi/market/commons/validate/internal/NotNullValidatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/test/java/com/skymobi/market/commons/validate/internal/bean/ExampleBean1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/test/java/com/skymobi/market/commons/validate/internal/bean/ExampleBean2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/test/java/com/skymobi/market/commons/validate/internal/bean/ValidateExampleBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-validate/src/test/java/com/skymobi/market/commons/validate/internal/BeanValidatorTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-473">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-sap/src/main/java/org/bigmouth/nvwa/sap/DefaultSapRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-171">
+          <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-sap/src/main/java/org/bigmouth/nvwa/sap/namecode/NameCodePair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-sap/src/main/java/org/bigmouth/nvwa/sap/namecode/NameCodeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-sap/src/main/java/org/bigmouth/nvwa/sap/namecode/DefaultNameCodePair.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-sap/src/main/java/org/bigmouth/nvwa/sap/namecode/DefaultNameCodeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-distributed/src/main/java/org/bigmouth/nvwa/distributed/monitor/Updatable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-distributed/src/main/java/org/bigmouth/nvwa/distributed/monitor/ChildrenChangeEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-asyncweb/src/main/java/org/apache/asyncweb/common/DefaultHttpRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-338">
+          <caret line="47" column="13" lean-forward="false" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-cluster/src/main/java/org/bigmouth/nvwa/cluster/node/ZooKeeperCuratorWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1121">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-cluster/src/main/java/org/bigmouth/nvwa/cluster/node/Wrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-contentstore/src/main/java/org/bigmouth/nvwa/contentstore/ContentStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-contentstore/src/main/java/org/bigmouth/nvwa/contentstore/file/FileContentStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-contentstore/src/main/java/org/bigmouth/nvwa/contentstore/impl/LocalCachedContentStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-contentstore/src/main/java/org/bigmouth/nvwa/contentstore/impl/ContentStoreUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-contentstore/src/main/java/org/bigmouth/nvwa/contentstore/impl/DefaultContentStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-dpl/src/main/java/org/bigmouth/nvwa/dpl/ClassLoaderHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-dpl/src/main/java/org/bigmouth/nvwa/dpl/hotswap/ClassFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/Class.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="731" column="35" lean-forward="false" selection-start-line="731" selection-start-column="35" selection-end-line="731" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/src.zip!/java/lang/ClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="1772" column="25" lean-forward="true" selection-start-line="1772" selection-start-column="25" selection-end-line="1772" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-dpl/src/main/java/org/bigmouth/nvwa/dpl/service/AsyncServiceClosure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-dpl/src/main/java/org/bigmouth/nvwa/dpl/service/AbstractService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-log4mongo/src/main/java/org/bigmouth/nvwa/log4mongo/MongoDbAppender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../program/apache-maven-3.0.5/repo/log4j/log4j/1.2.16/log4j-1.2.16.jar!/org/apache/log4j/AppenderSkeleton.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-log4mongo/src/main/java/org/bigmouth/nvwa/log4mongo/BsonAppender.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="100" column="48" lean-forward="true" selection-start-line="100" selection-start-column="48" selection-end-line="100" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-log4mongo/src/main/java/org/bigmouth/nvwa/log4mongo/MongoDbPatternLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-685">
+          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-log4mongo/src/main/java/org/bigmouth/nvwa/log4mongo/contrib/HostInfoPatternParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-200">
+          <caret line="38" column="13" lean-forward="false" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nvwa-dpl/src/main/java/org/bigmouth/nvwa/dpl/hotswap/PlugInClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="106" column="40" lean-forward="false" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
+          <folding>
+            <element signature="e#4167#4175#0" expanded="true" />
+            <element signature="e#4243#4261#0" expanded="true" />
+            <element signature="e#17831#17839#0" expanded="true" />
+            <element signature="e#22479#22509#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>nvwa-zkadmin:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>nvwa-cluster</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

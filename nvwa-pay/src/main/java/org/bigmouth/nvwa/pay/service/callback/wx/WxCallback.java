@@ -31,10 +31,16 @@ import org.slf4j.LoggerFactory;
  * @author Allen Hu - (big-mouth.cn) 
  * 2015-8-8
  */
-public class WxCallback implements Callback {
+public class WxCallback implements Callback<WxCallbackRequest, WxCallbackResponse> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WxCallback.class);
     
+    @Override
+    public WxCallbackResponse callback(WxCallbackRequest request) {
+        byte[] entity = request.getEntity();
+        return callback(entity);
+    }
+
     public WxCallbackResponse callback(byte[] entity) {
         if (ArrayUtils.isEmpty(entity)) {
             throw new CallbackException("data has empty!");

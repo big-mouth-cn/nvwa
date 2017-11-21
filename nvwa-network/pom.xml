@@ -15,12 +15,10 @@
   		<scope>compile</scope>
   	</dependency>
   	<dependency>
-  		<groupId>com.sftp</groupId>
-  		<artifactId>com-sftp</artifactId>
-  		<version>1.0.0</version>
-  		<type>jar</type>
-  		<scope>compile</scope>
-  	</dependency>
+	  <groupId>org.openengsb.wrapped</groupId>
+	  <artifactId>com.jcraft.jsch-all</artifactId>
+	  <version>1.0.0.RELEASE</version>
+	</dependency>
   	<dependency>
   		<groupId>org.bigmouth</groupId>
   		<artifactId>nvwa-utils</artifactId>

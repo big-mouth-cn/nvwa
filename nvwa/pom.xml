@@ -14,11 +14,6 @@
   	</dependency>
   	<dependency>
   		<groupId>org.bigmouth</groupId>
-  		<artifactId>nvwa-office</artifactId>
-  		<version>${project.parent.version}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.bigmouth</groupId>
   		<artifactId>nvwa-validate</artifactId>
   		<version>${project.parent.version}</version>
   	</dependency>
@@ -191,7 +186,7 @@
                             <artifactSet>
                                 <includes>
                                     <include>org.bigmouth:nvwa-utils</include>
-                                    <include>org.bigmouth:nvwa-office</include>
+                                    <!-- <include>org.bigmouth:nvwa-office</include> -->
                                     <include>org.bigmouth:nvwa-validate</include>
                                     <include>org.bigmouth:nvwa-network</include>
                                     <include>org.bigmouth:nvwa-spring</include>

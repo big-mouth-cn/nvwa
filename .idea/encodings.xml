@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-asyncweb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-authority" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-cache" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-cluster" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-codec-core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-contentstore" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-distributed" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-dpl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-jmx" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-log" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-log4mongo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-mq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-mybatis3" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-network" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-office" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-sap" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-session" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-spring" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-transport" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-utils" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-validate" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-xmemcached" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-zkadmin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nvwa-zookeeper" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="nvwa" />
+        <module name="nvwa-asyncweb" />
+        <module name="nvwa-authority" />
+        <module name="nvwa-cache" />
+        <module name="nvwa-cluster" />
+        <module name="nvwa-codec-core" />
+        <module name="nvwa-contentstore" />
+        <module name="nvwa-distributed" />
+        <module name="nvwa-dpl" />
+        <module name="nvwa-jmx" />
+        <module name="nvwa-log" />
+        <module name="nvwa-log4mongo" />
+        <module name="nvwa-mq" />
+        <module name="nvwa-mybatis3" />
+        <module name="nvwa-network" />
+        <module name="nvwa-office" />
+        <module name="nvwa-sap" />
+        <module name="nvwa-session" />
+        <module name="nvwa-spring" />
+        <module name="nvwa-transport" />
+        <module name="nvwa-utils" />
+        <module name="nvwa-validate" />
+        <module name="nvwa-xmemcached" />
+        <module name="nvwa-zkadmin" />
+        <module name="nvwa-zookeeper" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="nvwa" target="1.6" />
+      <module name="nvwa-asyncweb" target="1.6" />
+      <module name="nvwa-authority" target="1.6" />
+      <module name="nvwa-cache" target="1.6" />
+      <module name="nvwa-cluster" target="1.6" />
+      <module name="nvwa-codec-core" target="1.6" />
+      <module name="nvwa-contentstore" target="1.6" />
+      <module name="nvwa-distributed" target="1.6" />
+      <module name="nvwa-dpl" target="1.6" />
+      <module name="nvwa-jmx" target="1.6" />
+      <module name="nvwa-log" target="1.6" />
+      <module name="nvwa-log4mongo" target="1.6" />
+      <module name="nvwa-mq" target="1.6" />
+      <module name="nvwa-mybatis3" target="1.6" />
+      <module name="nvwa-network" target="1.6" />
+      <module name="nvwa-office" target="1.7" />
+      <module name="nvwa-parent" target="1.6" />
+      <module name="nvwa-sap" target="1.6" />
+      <module name="nvwa-session" target="1.6" />
+      <module name="nvwa-spring" target="1.6" />
+      <module name="nvwa-transport" target="1.6" />
+      <module name="nvwa-utils" target="1.6" />
+      <module name="nvwa-validate" target="1.6" />
+      <module name="nvwa-xmemcached" target="1.5" />
+      <module name="nvwa-zkadmin" target="1.6" />
+      <module name="nvwa-zookeeper" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

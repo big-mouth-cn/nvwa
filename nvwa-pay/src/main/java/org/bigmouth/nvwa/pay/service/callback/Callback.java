@@ -24,7 +24,9 @@ import org.bigmouth.nvwa.pay.PayProvider;
  * @author Allen Hu - (big-mouth.cn) 
  * 2015-8-6
  */
-public interface Callback {
+public interface Callback<REQ extends CallbackRequest, RESP extends CallbackResponse> {
 
     PayProvider getProvider();
+    
+    RESP callback(REQ request);
 }

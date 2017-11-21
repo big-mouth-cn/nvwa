@@ -29,7 +29,6 @@ import org.bigmouth.nvwa.pay.config.wx.WxPayConfig;
 import org.bigmouth.nvwa.pay.config.wx.WxTradeType;
 import org.bigmouth.nvwa.pay.service.prepay.PrepayInsideRequest;
 import org.bigmouth.nvwa.pay.service.prepay.PrepayRequest;
-import org.bigmouth.nvwa.pay.utils.PayId;
 import org.bigmouth.nvwa.utils.StringHelper;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
@@ -124,7 +123,7 @@ public class WxPrepayInsideRequest extends PrepayInsideRequest {
         req.setMchId(config.getMchId());
         req.setNonceStr(StringHelper.uuid());
         req.setBody(arg.getDescription());
-        req.setOutTradeNo(PayId.generate());
+        req.setOutTradeNo(arg.getOutTradeNo());
         req.setTotalFee(arg.getFee());
         req.setSpbillIp(arg.getIp());
         req.setNotifyUrl(arg.getNotifyUrl());

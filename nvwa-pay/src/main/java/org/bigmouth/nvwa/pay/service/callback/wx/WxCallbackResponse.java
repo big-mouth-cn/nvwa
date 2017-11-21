@@ -56,7 +56,7 @@ public class WxCallbackResponse extends CallbackResponse {
                 : StringHelper.convert(new Respond().fail().toXML());
     }
     
-    class Respond implements Serializable, ToXMLWrapper {
+    public static class Respond implements Serializable, ToXMLWrapper {
         
         private static final long serialVersionUID = 1326520072891927633L;
         
@@ -80,7 +80,7 @@ public class WxCallbackResponse extends CallbackResponse {
         }
         
         public Respond fail() {
-            return new Respond(PayDefaults.SUCCESS);
+            return new Respond(PayDefaults.FAIL);
         }
         
         public String getReturnCode() {

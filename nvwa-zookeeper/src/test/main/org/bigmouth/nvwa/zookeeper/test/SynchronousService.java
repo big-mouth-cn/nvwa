@@ -27,7 +27,7 @@ public class SynchronousService {
     
     @SynchronousSupport(zkPath = "/nvwa-zookeeper/locks")
     public void execute(String name, @PrimaryKey String id) {
-        logger.info("[{}] Hello " + name, id);
+        logger.info(Thread.currentThread().getName() + " - [{}] Hello " + name, id);
         try {
             Thread.sleep(1000);
         }

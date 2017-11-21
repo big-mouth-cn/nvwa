@@ -112,7 +112,7 @@ Date.prototype.format = function(fmt) {
 								backdrop : 'static',
 								size : 'lg',
 								shown : function() {
-									textarea.focus();
+									// textarea.focus();
 								},
 								btns : {
 									ok : {

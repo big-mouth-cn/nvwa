@@ -30,10 +30,15 @@ import org.slf4j.LoggerFactory;
  * @author Allen Hu - (big-mouth.cn) 
  * 2015-8-8
  */
-public class AlipayCallback implements Callback {
+public class AlipayCallback implements Callback<AlipayCallbackRequest, AlipayCallbackResponse> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AlipayCallback.class);
     
+    @Override
+    public AlipayCallbackResponse callback(AlipayCallbackRequest request) {
+        return callback(request.getUri());
+    }
+
     public AlipayCallbackResponse callback(String uri) {
         if (StringHelper.isBlank(uri)) {
             throw new CallbackException("uri has be blank!");

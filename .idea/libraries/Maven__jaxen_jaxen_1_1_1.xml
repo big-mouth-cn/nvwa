@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: jaxen:jaxen:1.1.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../program/apache-maven-3.0.5/repo/jaxen/jaxen/1.1.1/jaxen-1.1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../program/apache-maven-3.0.5/repo/jaxen/jaxen/1.1.1/jaxen-1.1.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../program/apache-maven-3.0.5/repo/jaxen/jaxen/1.1.1/jaxen-1.1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

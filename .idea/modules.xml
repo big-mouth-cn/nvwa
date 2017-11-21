@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/nvwa/nvwa.iml" filepath="$PROJECT_DIR$/nvwa/nvwa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-asyncweb/nvwa-asyncweb.iml" filepath="$PROJECT_DIR$/nvwa-asyncweb/nvwa-asyncweb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-authority/nvwa-authority.iml" filepath="$PROJECT_DIR$/nvwa-authority/nvwa-authority.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-cache/nvwa-cache.iml" filepath="$PROJECT_DIR$/nvwa-cache/nvwa-cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-cluster/nvwa-cluster.iml" filepath="$PROJECT_DIR$/nvwa-cluster/nvwa-cluster.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-codec-core/nvwa-codec-core.iml" filepath="$PROJECT_DIR$/nvwa-codec-core/nvwa-codec-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-contentstore/nvwa-contentstore.iml" filepath="$PROJECT_DIR$/nvwa-contentstore/nvwa-contentstore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-distributed/nvwa-distributed.iml" filepath="$PROJECT_DIR$/nvwa-distributed/nvwa-distributed.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-dpl/nvwa-dpl.iml" filepath="$PROJECT_DIR$/nvwa-dpl/nvwa-dpl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-jmx/nvwa-jmx.iml" filepath="$PROJECT_DIR$/nvwa-jmx/nvwa-jmx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-log/nvwa-log.iml" filepath="$PROJECT_DIR$/nvwa-log/nvwa-log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-log4mongo/nvwa-log4mongo.iml" filepath="$PROJECT_DIR$/nvwa-log4mongo/nvwa-log4mongo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-mq/nvwa-mq.iml" filepath="$PROJECT_DIR$/nvwa-mq/nvwa-mq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-mybatis3/nvwa-mybatis3.iml" filepath="$PROJECT_DIR$/nvwa-mybatis3/nvwa-mybatis3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-network/nvwa-network.iml" filepath="$PROJECT_DIR$/nvwa-network/nvwa-network.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-office/nvwa-office.iml" filepath="$PROJECT_DIR$/nvwa-office/nvwa-office.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-parent.iml" filepath="$PROJECT_DIR$/nvwa-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-sap/nvwa-sap.iml" filepath="$PROJECT_DIR$/nvwa-sap/nvwa-sap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-session/nvwa-session.iml" filepath="$PROJECT_DIR$/nvwa-session/nvwa-session.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-spring/nvwa-spring.iml" filepath="$PROJECT_DIR$/nvwa-spring/nvwa-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-transport/nvwa-transport.iml" filepath="$PROJECT_DIR$/nvwa-transport/nvwa-transport.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-utils/nvwa-utils.iml" filepath="$PROJECT_DIR$/nvwa-utils/nvwa-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-validate/nvwa-validate.iml" filepath="$PROJECT_DIR$/nvwa-validate/nvwa-validate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-xmemcached/nvwa-xmemcached.iml" filepath="$PROJECT_DIR$/nvwa-xmemcached/nvwa-xmemcached.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-zkadmin/nvwa-zkadmin.iml" filepath="$PROJECT_DIR$/nvwa-zkadmin/nvwa-zkadmin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nvwa-zookeeper/nvwa-zookeeper.iml" filepath="$PROJECT_DIR$/nvwa-zookeeper/nvwa-zookeeper.iml" />
+    </modules>
+  </component>
+</project>

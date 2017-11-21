@@ -18,6 +18,8 @@ package org.bigmouth.nvwa.zookeeper.test;
 import org.bigmouth.nvwa.spring.SpringContextHolder;
 import org.bigmouth.nvwa.spring.boot.SpringBootstrap;
 
+import java.util.concurrent.CountDownLatch;
+
 
 /**
  * 
@@ -27,21 +29,47 @@ import org.bigmouth.nvwa.spring.boot.SpringBootstrap;
 public class SynchronousTest {
 
     static {
-        SpringBootstrap.bootUsingSpring(new String[] { "applicationContext.xml" }, new String[] {});
+        SpringBootstrap.bootUsingSpring(new String[] { "test/config/applicationContext.xml" }, new String[] {});
+    }
+
+    static class MyThread implements Runnable {
+        final CountDownLatch latch;
+        final String id;
+        final SynchronousService service;
+
+        public MyThread(CountDownLatch latch, String id, SynchronousService service) {
+            this.latch = latch;
+            this.id = id;
+            this.service = service;
+        }
+
+        @Override
+        public void run() {
+            try {
+                service.execute("Allen", id);
+            } finally {
+                latch.countDown();
+            }
+        }
     }
     
     public static void main(String[] args) {
-        new Thread(new Runnable() {
-            
-            @Override
-            public void run() {
-                final SynchronousService bean1 = SpringContextHolder.getBean("synchronousService1");
-                bean1.execute("Allen", "01333");
-                bean1.execute("Lulu", "01334");
-            }
-        }).start();
-        
-        final SynchronousService bean2 = SpringContextHolder.getBean("synchronousService2");
-        bean2.execute("Lulu", "01334");
+        CountDownLatch latch = new CountDownLatch(3);
+
+        SynchronousService service = (SynchronousService) SpringContextHolder.getBean("synchronousService1");
+        Thread t1 = new Thread(new MyThread(latch, "1000", service));
+        t1.setName("t1");
+        t1.start();
+        Thread t2 = new Thread(new MyThread(latch, "1000", service));
+        t2.setName("t2");
+        t2.start();
+
+        try {
+            latch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("finished!");
     }
 }
