@@ -31,3 +31,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
 	background: #7d7d7d;
 }
+
+.modal-lg {
+    width: 1200px;
+}

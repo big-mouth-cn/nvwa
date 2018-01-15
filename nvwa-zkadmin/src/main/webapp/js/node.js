@@ -76,7 +76,7 @@ Date.prototype.format = function(fmt) {
 						loadPath(treeNode, path, false, function() {
 							var body = $('<div class="row">');
 							
-							var left = $('<div class="col-md-4">');
+							var left = $('<div class="col-md-3">');
 							body.append(left);
 							
 							var $stat = $('<ul class="list-group">');
@@ -92,10 +92,10 @@ Date.prototype.format = function(fmt) {
 							}
 							left.append($stat);
 							
-							var right = $('<div class="col-md-8">');
+							var right = $('<div class="col-md-9">');
 							body.append(right);
 							
-							var textarea = $('<textarea rows="26" style="font-family: Courier New;">').addClass('form-control');
+							var textarea = $('<textarea rows="35" style="font-family: Courier New;">').addClass('form-control');
 							if (treeNode.data) {
 								if (treeNode.data.data2String) {
 									textarea.val(treeNode.data.data2String);

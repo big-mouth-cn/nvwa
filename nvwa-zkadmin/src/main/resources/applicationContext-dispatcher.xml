@@ -23,4 +23,15 @@
 		<property name="suffix" value=".jsp" />
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 	</bean>
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="org.bigmouth.nvwa.zkadmin.interceptor.AuthorizationInterceptor">
+				<constructor-arg value="root" />
+				<constructor-arg value="root123" />
+			</bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
 </beans>
